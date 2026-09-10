@@ -1,0 +1,12 @@
+{
+  "comments": { "blockComment": ["[", "]"] },
+  "brackets": [["[", "]"], ["(", ")"]],
+  "autoClosingPairs": [
+    { "open": "[", "close": "]" },
+    { "open": "(", "close": ")" },
+    { "open": "\"", "close": "\"", "notIn": ["string"] }
+  ],
+  "surroundingPairs": [["[", "]"], ["(", ")"], ["\"", "\""]],
+  "folding": { "markers": { "start": "^\\s*(Volume|Book|Part|Chapter|Section)\\b", "end": "(?!)" } },
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^`~!@#%\\^&*()=+\\[{\\]}\\\\|;:'\\\",.<>/?\\s]+)"
+}

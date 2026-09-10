@@ -1,0 +1,282 @@
+{
+  "name": "informant",
+  "displayName": "Informant",
+  "description": "A self-contained Inform development environment for Visual Studio Code.",
+  "version": "0.1.4",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "Inform 7",
+    "Inform7",
+    "interactive fiction",
+    "Glulx",
+    "Z-machine"
+  ],
+  "activationEvents": [
+    "onLanguage:inform7",
+    "onCommand:informant.compile",
+    "onCommand:informant.compileAndPlay",
+    "onCommand:informant.play",
+    "onCommand:informant.installToolchain",
+    "onCommand:informant.manageToolchains",
+    "onCommand:informant.createProject",
+    "onCommand:informant.openProject"
+  ],
+  "main": "./extension.js",
+  "icon": "resources/icons/informant.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "inform7",
+        "aliases": [
+          "Inform 7",
+          "Inform7"
+        ],
+        "extensions": [
+          ".ni",
+          ".i7x"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "inform7",
+        "scopeName": "source.inform7",
+        "path": "./syntaxes/inform7.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "inform7",
+        "path": "./snippets/inform7.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "informant.compile",
+        "title": "Informant: Compile Story"
+      },
+      {
+        "command": "informant.compileAndPlay",
+        "title": "Informant: Compile and Play"
+      },
+      {
+        "command": "informant.play",
+        "title": "Informant: Play Story"
+      },
+      {
+        "command": "informant.test",
+        "title": "Informant: Test Story"
+      },
+      {
+        "command": "informant.showErrors",
+        "title": "Informant: Show Build Errors"
+      },
+      {
+        "command": "informant.openDocs",
+        "title": "Informant: Open Documentation"
+      },
+      {
+        "command": "informant.createProject",
+        "title": "Informant: Create New Project"
+      },
+      {
+        "command": "informant.openProject",
+        "title": "Informant: Open Project"
+      },
+      {
+        "command": "informant.installExtension",
+        "title": "Informant: Install .i7x Extension"
+      },
+      {
+        "command": "informant.clean",
+        "title": "Informant: Clean Project"
+      },
+      {
+        "command": "informant.installToolchain",
+        "title": "Informant: Install Toolchain"
+      },
+      {
+        "command": "informant.manageToolchains",
+        "title": "Informant: Manage Toolchains"
+      },
+      {
+        "command": "informant.selectToolchain",
+        "title": "Informant: Select Project Toolchain"
+      },
+      {
+        "command": "informant.showStorage",
+        "title": "Informant: Reveal Informant Storage"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "informant.compile",
+          "when": "editorLangId == inform7",
+          "group": "navigation@10"
+        },
+        {
+          "command": "informant.play",
+          "when": "editorLangId == inform7",
+          "group": "navigation@11"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "informant.compile",
+          "when": "editorLangId == inform7",
+          "group": "informant@1"
+        },
+        {
+          "command": "informant.compileAndPlay",
+          "when": "editorLangId == inform7",
+          "group": "informant@2"
+        },
+        {
+          "command": "informant.showErrors",
+          "when": "editorLangId == inform7",
+          "group": "informant@3"
+        },
+        {
+          "command": "informant.selectToolchain",
+          "when": "editorLangId == inform7",
+          "group": "informant@4"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "informant.compile"
+        },
+        {
+          "command": "informant.compileAndPlay"
+        },
+        {
+          "command": "informant.play"
+        },
+        {
+          "command": "informant.installToolchain"
+        },
+        {
+          "command": "informant.manageToolchains"
+        },
+        {
+          "command": "informant.createProject"
+        },
+        {
+          "command": "informant.openProject"
+        },
+        {
+          "command": "informant.openDocs"
+        },
+        {
+          "command": "informant.selectToolchain"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "informant.compile",
+        "key": "ctrl+alt+b",
+        "mac": "cmd+alt+b",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.compileAndPlay",
+        "key": "ctrl+alt+r",
+        "mac": "cmd+alt+r",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.play",
+        "key": "ctrl+alt+p",
+        "mac": "cmd+alt+p",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.showErrors",
+        "key": "ctrl+alt+e",
+        "mac": "cmd+alt+e",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.openDocs",
+        "key": "ctrl+alt+h",
+        "mac": "cmd+alt+h",
+        "when": "editorLangId == inform7"
+      }
+    ],
+    "configuration": {
+      "title": "Informant",
+      "properties": {
+        "informant.toolchain.preferredVersion": {
+          "type": "string",
+          "default": "latest",
+          "description": "Preferred private Inform toolchain version. Use 'latest' or a version folder installed in Informant storage."
+        },
+        "informant.toolchain.manifestUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Optional URL for a JSON manifest listing downloadable Informant toolchains. First revisions can leave this blank and import a local toolchain folder/archive instead."
+        },
+        "informant.toolchain.allowSystemFallback": {
+          "type": "boolean",
+          "default": false,
+          "description": "Allow Informant to use Inform tools found on PATH if no private toolchain is installed. Off by default to avoid interference with existing Inform installations."
+        },
+        "informant.build.commandTemplate": {
+          "type": "string",
+          "default": "{inform7} -project {project}",
+          "description": "Command template used for private toolchain builds. Tokens: {project}, {toolchain}, {inform7}, {inform6}, {inbuild}, {inter}, {inblorb}."
+        },
+        "informant.build.cleanBeforeCompile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Remove Build artifacts before compiling."
+        },
+        "informant.player.command": {
+          "type": "string",
+          "default": "",
+          "description": "Interpreter command. If empty, Informant auto-detects private interpreters, then optionally system glulxe/git/frotz if fallback is enabled, then opens the story file externally."
+        },
+        "informant.player.args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Arguments placed before the compiled story path when launching the interpreter."
+        },
+        "informant.docs.uri": {
+          "type": "string",
+          "default": "https://ganelson.github.io/inform-website/",
+          "description": "Inform documentation URL or local HTML file/folder."
+        },
+        "informant.extensions.folder": {
+          "type": "string",
+          "default": "",
+          "description": "Fallback Inform extensions folder used for copying .i7x files. If empty, Informant copies into the active project's Extensions folder."
+        },
+        "informant.errors.extraPatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Additional JavaScript regex patterns for build errors. Expected captures: file, line, optional column, message."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "node --check extension.js"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Inform 7",
+  "scopeName": "source.inform7",
+  "patterns": [
+    { "include": "#headings" },
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#rules" },
+    { "include": "#definitions" },
+    { "include": "#numbers" },
+    { "include": "#keywords" }
+  ],
+  "repository": {
+    "headings": {
+      "patterns": [{
+        "match": "^(Volume|Book|Part|Chapter|Section)\\s+.*$",
+        "name": "markup.heading.inform7"
+      }]
+    },
+    "comments": {
+      "patterns": [{
+        "begin": "\\[",
+        "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.inform7" } },
+        "end": "\\]",
+        "endCaptures": { "0": { "name": "punctuation.definition.comment.end.inform7" } },
+        "name": "comment.block.inform7",
+        "patterns": [{ "include": "#comments" }]
+      }]
+    },
+    "strings": {
+      "patterns": [{
+        "begin": "\"",
+        "end": "\"",
+        "name": "string.quoted.double.inform7",
+        "patterns": [
+          { "match": "\\[[^\\]]+\\]", "name": "constant.character.escape.inform7" }
+        ]
+      }]
+    },
+    "rules": {
+      "patterns": [
+        { "match": "\\b(Instead|Before|After|Check|Carry out|Report|Every turn|When play begins|When play ends)(?=\\b)", "name": "keyword.control.rule.inform7" },
+        { "match": "\\b(if|unless|otherwise|repeat|while|now|let|decide|say|stop|continue|rule succeeds|rule fails)\\b", "name": "keyword.control.inform7" }
+      ]
+    },
+    "definitions": {
+      "patterns": [
+        { "match": "^(.+?)\\s+(is|are)\\s+(a|an|some)\\s+(kind of|room|thing|person|animal|container|supporter|device|door|vehicle|region)\\b", "captures": { "1": { "name": "entity.name.type.inform7" }, "2": { "name": "keyword.operator.word.inform7" }, "4": { "name": "storage.type.inform7" } } },
+        { "match": "\\b(action|activity|rulebook|relation|phrase|understand|definition|table)\\b", "name": "storage.type.inform7" }
+      ]
+    },
+    "numbers": {
+      "patterns": [{ "match": "\\b\\d+(?:\\.\\d+)?\\b", "name": "constant.numeric.inform7" }]
+    },
+    "keywords": {
+      "patterns": [{
+        "match": "\\b(is|are|has|have|can be|usually|always|never|called|means|understand|as|of|in|on|from|to|with|by|for|than|where|when|during|listed|instead of)\\b",
+        "name": "keyword.other.inform7"
+      }]
+    }
+  }
+}

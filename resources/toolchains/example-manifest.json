@@ -1,0 +1,11 @@
+{
+  "toolchains": [
+    {
+      "id": "inform-10.2.0-linux-x64",
+      "version": "10.2.0",
+      "platform": "linux-x64",
+      "url": "https://example.invalid/inform-10.2.0-linux-x64.tar.gz",
+      "sha256": "replace-with-real-sha256"
+    }
+  ]
+}

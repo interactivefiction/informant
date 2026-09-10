@@ -1,0 +1,22 @@
+{
+  "Story header": {
+    "prefix": "story",
+    "body": ["\"${1:Story Title}\" by ${2:Author}", "", "${0}"],
+    "description": "Create an Inform 7 story header"
+  },
+  "Room": {
+    "prefix": "room",
+    "body": ["${1:The Room} is a room. \"${2:Description}\"", "${0}"],
+    "description": "Create a room"
+  },
+  "Instead rule": {
+    "prefix": "instead",
+    "body": ["Instead of ${1:taking the lamp}:", "\t${2:say \"Not now.\"}", "${0}"],
+    "description": "Create an Instead rule"
+  },
+  "Table": {
+    "prefix": "table",
+    "body": ["Table of ${1:Data}", "${2:column}\t${3:value}", "${4:item}\t${5:result}", "${0}"],
+    "description": "Create an Inform 7 table"
+  }
+}
