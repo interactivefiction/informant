@@ -99,7 +99,7 @@ async function listToolchains() {
 }
 
 async function findBinDir(root) {
-  const candidates = [path.join(root, 'bin'), root, path.join(root, 'inform', 'bin')];
+  const candidates = [path.join(root, 'bin'), root, path.join(root, 'inform', 'bin'), path.join(root, 'Compilers')];
   for (const c of candidates) if (await exists(path.join(c, exe('inform7')))) return c;
   // Shallow scan for imported archives with one containing top-level directory.
   const queue = [root];

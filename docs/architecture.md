@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-Informant is intended to provide a modern, dependable Inform 7 development environment without repeating the dependency fragility of older Linux Inform IDEs.
+Informant is intended to provide a modern, alternative to existing Inform 7 development environment.
 
 The initial implementation target is a Visual Studio Code extension.
 
@@ -17,10 +17,6 @@ The editor should hide compiler/toolchain complexity while preserving normal Inf
 ## 2. Historical motivation
 
 Informant is philosophically descended more directly from **Vimform7** than from the old GNOME Inform IDE.
-
-The important lesson from the older Linux IDE ecosystem was that a writing environment should not become unusable because a GUI dependency disappears from the operating system.
-
-Older GNOME Inform builds depended on legacy components including WebKitGTK 1.0, GooCanvas, and Chimara. Preserving those dependencies was possible, but it demonstrated why the next-generation workflow should isolate the essential Inform machinery from the host desktop environment.
 
 Vimform7 reduced the required stack to the essentials:
 - editor
