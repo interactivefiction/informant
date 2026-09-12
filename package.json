@@ -2,7 +2,7 @@
   "name": "informant",
   "displayName": "Informant",
   "description": "A self-contained Inform development environment for Visual Studio Code.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "local",
   "license": "MIT",
   "repository": {

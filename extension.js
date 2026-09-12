@@ -452,8 +452,7 @@ async function createInform7StoryProject(parentUri, name, author) {
 
   const rootUri = vscode.Uri.joinPath(parentUri, `${safe}.inform`);
   const sourceDirUri = vscode.Uri.joinPath(rootUri, 'Source');
-  const materialsDirUri = vscode.Uri.joinPath(rootUri, 'Materials');
-  const extensionsDirUri = vscode.Uri.joinPath(rootUri, 'Extensions');
+  const uuidUri = vscode.Uri.joinPath(rootUri, 'uuid.txt');
   const storyUri = vscode.Uri.joinPath(sourceDirUri, 'story.ni');
   const configUri = vscode.Uri.joinPath(rootUri, '.informant.json');
 
@@ -468,11 +467,10 @@ async function createInform7StoryProject(parentUri, name, author) {
   output.appendLine(`Creating project at: ${rootUri.toString(true)}`);
 
   await vscode.workspace.fs.createDirectory(sourceDirUri);
-  await vscode.workspace.fs.createDirectory(materialsDirUri);
-  await vscode.workspace.fs.createDirectory(extensionsDirUri);
 
   const source = `"${escapeInformString(name.trim())}" by "${escapeInformString(author)}"\n\nThe Starting Room is a room.\n`;
   await vscode.workspace.fs.writeFile(storyUri, Buffer.from(source, 'utf8'));
+  await vscode.workspace.fs.writeFile(uuidUri, Buffer.from(crypto.randomUUID(), 'utf8'));
 
   const projectConfig = JSON.stringify({
     projectType: 'inform7-story',
@@ -480,11 +478,12 @@ async function createInform7StoryProject(parentUri, name, author) {
   }, null, 2) + '\n';
   await vscode.workspace.fs.writeFile(configUri, Buffer.from(projectConfig, 'utf8'));
 
-  if (!(await uriExists(storyUri)) || !(await uriExists(configUri))) {
+  if (!(await uriExists(storyUri)) || !(await uriExists(uuidUri)) || !(await uriExists(configUri))) {
     throw new Error(`Project creation failed verification at ${displayUri(rootUri)}.`);
   }
 
   output.appendLine(`Created: ${storyUri.toString(true)}`);
+  output.appendLine(`Created: ${uuidUri.toString(true)}`);
   output.appendLine(`Created: ${configUri.toString(true)}`);
   return { rootUri, storyUri, configUri, projectName: `${safe}.inform` };
 }
