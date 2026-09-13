@@ -9,6 +9,7 @@ const os = require('os');
 const https = require('https');
 const crypto = require('crypto');
 const util = require('util');
+const { pipeline } = require('stream/promises');
 const execFile = util.promisify(cp.execFile);
 const exec = util.promisify(cp.exec);
 
@@ -92,7 +93,8 @@ async function listToolchains() {
       try { manifest = Object.assign(manifest, JSON.parse(await fsp.readFile(manifestPath, 'utf8'))); } catch { }
     }
     const binDir = await findBinDir(root);
-    items.push({ id: name, root, binDir, manifest, hasInform7: !!(binDir && await exists(path.join(binDir, exe('inform7')))) });
+    const internalRoot = binDir && path.basename(binDir) === 'Compilers' ? path.dirname(binDir) : undefined;
+    items.push({ id: name, root, binDir, internalRoot, manifest, hasInform7: !!(binDir && await exists(path.join(binDir, exe('inform7')))) });
   }
   items.sort((a, b) => String(b.manifest.importedAt || '').localeCompare(String(a.manifest.importedAt || '')) || b.id.localeCompare(a.id));
   return items;
@@ -164,48 +166,70 @@ async function compileProject(playAfter) {
     if (choice !== 'Use PATH This Time') return;
   }
 
-  const tools = {
-    toolchain: toolchain?.root || '',
-    inform7: await resolveTool('inform7', toolchain),
-    inform6: await resolveTool('inform6', toolchain),
-    inbuild: await resolveTool('inbuild', toolchain),
-    inter: await resolveTool('inter', toolchain),
-    inblorb: await resolveTool('inblorb', toolchain)
-  };
-
-  if (!tools.inform7) {
-    throw new Error('No inform7 executable is available. Install a private toolchain or enable informant.toolchain.allowSystemFallback.');
+  if (!toolchain?.internalRoot || !toolchain.binDir ||
+      !(await fsp.stat(toolchain.internalRoot).catch(() => undefined))?.isDirectory()) {
+    vscode.window.showErrorMessage('Informant: A packaged toolchain with a valid Internal resource directory is required.');
+    return;
+  }
+  const tools = {};
+  for (const name of ['inform7', 'inform6', 'inblorb']) {
+    const file = path.join(toolchain.binDir, exe(name));
+    if (!(await fsp.stat(file).catch(() => undefined))?.isFile()) {
+      vscode.window.showErrorMessage(`Informant: Packaged toolchain is incomplete: missing compiler ${file}.`);
+      return;
+    }
+    tools[name] = file;
   }
 
-  const template = config().get('build.commandTemplate', '{inform7} -project {project}');
-  const command = renderTemplate(template, Object.assign({ project: root }, tools));
+  const story = path.join(root, 'Build', 'output.gblorb');
+  const stages = [
+    { name: 'Stage 1 — Inform 7', executable: tools.inform7,
+      args: ['-internal', toolchain.internalRoot, '-format=ulx', '-project', root, '-release'] },
+    { name: 'Stage 2 — Inform 6', executable: tools.inform6,
+      args: ['-wxE2~S~DG', path.join(root, 'Build', 'auto.inf'), path.join(root, 'Build', 'output.ulx')] },
+    { name: 'Stage 3 — Inblorb', executable: tools.inblorb,
+      args: [path.join(root, 'Release.blurb'), story] }
+  ];
   output.appendLine(`Informant private storage: ${storageRoot()}`);
-  if (toolchain) output.appendLine(`Toolchain: ${toolchain.id} (${toolchain.root})`);
-  output.appendLine(`> ${command}`);
+  output.appendLine(`Toolchain: ${toolchain.id} (${toolchain.root})`);
+  output.appendLine(`Internal resources: ${toolchain.internalRoot}`);
   output.appendLine(`cwd: ${root}\n`);
 
-  let stdout = '', stderr = '', failed = false;
-  try {
-    const result = await exec(command, { cwd: root, maxBuffer: 32 * 1024 * 1024, env: process.env });
-    stdout = result.stdout || ''; stderr = result.stderr || '';
-  } catch (e) {
-    failed = true;
-    stdout = e.stdout || ''; stderr = e.stderr || e.message || '';
+  const captured = [];
+  for (const stage of stages) {
+    output.appendLine(stage.name);
+    output.appendLine(`> ${[stage.executable, ...stage.args].map(quoteShell).join(' ')}`);
+    let stdout = '', stderr = '', failure;
+    try {
+      const result = await execFile(stage.executable, stage.args, { cwd: root, maxBuffer: 32 * 1024 * 1024, env: process.env });
+      stdout = result.stdout || ''; stderr = result.stderr || '';
+    } catch (err) {
+      failure = err;
+      stdout = err.stdout || ''; stderr = err.stderr || '';
+    }
+    const text = [stdout, stderr].filter(Boolean).join('\n');
+    captured.push(text);
+    output.append(text || '(stage produced no output)\n');
+    output.appendLine('');
+    if (failure) {
+      const status = failure.signal ? `signal ${failure.signal}`
+        : failure.code !== undefined ? `exit code ${failure.code}` : failure.message;
+      const message = `Informant: ${stage.name} failed (${status}).`;
+      output.appendLine(message);
+      if (failure.message) output.appendLine(failure.message);
+      parseAndPublishErrors(captured.join('\n'), root);
+      vscode.window.showErrorMessage(message);
+      return;
+    }
   }
-  const all = [stdout, stderr].filter(Boolean).join('\n');
-  output.append(all || '(build produced no output)\n');
-  parseAndPublishErrors(all, root);
-
-  const story = findStory(root);
-  if (failed || lastErrors.length || !story) {
-    const suffix = lastErrors.length ? ` (${lastErrors.length} parsed problem${lastErrors.length === 1 ? '' : 's'})` : '';
-    const detail = !story && !failed ? ' No story file was found in Build/.' : '';
-    vscode.window.showErrorMessage(`Informant build did not complete${suffix}.${detail}`);
+  parseAndPublishErrors(captured.join('\n'), root);
+  if (!(await exists(story))) {
+    vscode.window.showErrorMessage(`Informant build did not complete: expected output was not found at ${story}.`);
     return;
   }
 
   vscode.window.showInformationMessage(`Informant build completed: ${path.basename(story)}`);
-  if (playAfter) await playLatest();
+  if (playAfter) await playLatest(story);
 }
 
 function renderTemplate(template, values) {
@@ -312,10 +336,10 @@ async function hasCommand(cmd) {
   try { await execFile(process.platform === 'win32' ? 'where' : 'which', [cmd]); return true; } catch { return false; }
 }
 
-async function playLatest() {
+async function playLatest(explicitStory) {
   const root = lastBuildRoot || findProjectRoot();
   if (!root) throw new Error('No Inform project is open.');
-  const story = findStory(root);
+  const story = explicitStory || findStory(root);
   if (!story) throw new Error('No compiled story file found. Compile first.');
 
   const toolchain = await selectedToolchain();
@@ -732,9 +756,11 @@ async function cleanProject() {
 
 async function installToolchain() {
   const choices = [
+    { label: config().get('toolchain.manifestUrl', '').trim()
+      ? '$(cloud-download) Download from configured manifest URL'
+      : '$(cloud-download) Download official Informant toolchain', kind: 'download' },
     { label: '$(folder) Import existing toolchain folder', kind: 'folder' },
     { label: '$(file-zip) Import toolchain archive (.zip/.tar.gz)', kind: 'archive' },
-    { label: '$(cloud-download) Download from configured manifest URL', kind: 'download' },
     { label: '$(globe) Open Inform download page', kind: 'openDocs' }
   ];
   const pick = await vscode.window.showQuickPick(choices, { placeHolder: 'Install a private Informant toolchain' });
@@ -786,10 +812,11 @@ async function importToolchainArchive() {
 
 async function downloadToolchainFromManifest() {
   const manifestUrl = config().get('toolchain.manifestUrl', '').trim();
-  if (!manifestUrl) throw new Error('Set informant.toolchain.manifestUrl first, or import a local folder/archive.');
   output.show(true);
-  output.appendLine(`Downloading manifest: ${manifestUrl}`);
-  const manifestText = await downloadText(manifestUrl);
+  output.appendLine(manifestUrl ? `Downloading manifest: ${manifestUrl}` : 'Using bundled official Informant toolchain manifest.');
+  const manifestText = manifestUrl
+    ? await downloadText(manifestUrl)
+    : await fsp.readFile(path.join(__dirname, 'resources', 'toolchains', 'official-manifest.json'), 'utf8');
   const manifest = JSON.parse(manifestText);
   const entries = (manifest.toolchains || []).filter(t => !t.platform || t.platform === platformKey());
   if (!entries.length) throw new Error(`Manifest has no toolchain for ${platformKey()}.`);
@@ -797,6 +824,9 @@ async function downloadToolchainFromManifest() {
   if (!pick) return;
   const t = pick.toolchain;
   if (!t.url) throw new Error('Selected manifest entry has no url.');
+  if (t.url === 'REPLACE_WITH_GITHUB_RELEASE_ASSET_URL' || t.sha256 === 'REPLACE_WITH_RELEASE_ASSET_SHA256') {
+    throw new Error('The official toolchain release is not configured yet. Replace the URL and SHA-256 placeholders in resources/toolchains/official-manifest.json.');
+  }
   const archivePath = path.join(os.tmpdir(), `informant-${Date.now()}-${path.basename(new URL(t.url).pathname)}`);
   output.appendLine(`Downloading archive: ${t.url}`);
   await downloadFile(t.url, archivePath);
@@ -918,19 +948,28 @@ function downloadText(url) {
   });
 }
 
-function downloadFile(url, dest) {
-  return new Promise((resolve, reject) => {
-    const file = fs.createWriteStream(dest);
-    https.get(url, res => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        file.close(); fs.unlink(dest, () => {});
-        return resolve(downloadFile(new URL(res.headers.location, url).toString(), dest));
-      }
-      if (res.statusCode !== 200) return reject(new Error(`HTTP ${res.statusCode}`));
-      res.pipe(file);
-      file.on('finish', () => file.close(resolve));
-    }).on('error', err => { file.close(); fs.unlink(dest, () => {}); reject(err); });
+async function downloadFile(url, dest, redirects = 0) {
+  const parsedUrl = new URL(url);
+  if (parsedUrl.protocol !== 'https:') throw new Error('Toolchain downloads require HTTPS.');
+  const res = await new Promise((resolve, reject) => {
+    https.get(parsedUrl, resolve).on('error', reject);
   });
+  if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+    const location = res.headers.location;
+    res.destroy();
+    if (redirects >= 10) throw new Error('Too many toolchain download redirects.');
+    return downloadFile(new URL(location, parsedUrl).toString(), dest, redirects + 1);
+  }
+  if (res.statusCode !== 200) {
+    res.destroy();
+    throw new Error(`HTTP ${res.statusCode}`);
+  }
+  try {
+    await pipeline(res, fs.createWriteStream(dest));
+  } catch (err) {
+    await fsp.rm(dest, { force: true }).catch(() => {});
+    throw err;
+  }
 }
 
 function sha256File(file) {

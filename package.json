@@ -229,7 +229,7 @@
         "informant.toolchain.manifestUrl": {
           "type": "string",
           "default": "",
-          "description": "Optional URL for a JSON manifest listing downloadable Informant toolchains. First revisions can leave this blank and import a local toolchain folder/archive instead."
+          "description": "Optional URL for a JSON manifest listing downloadable Informant toolchains. Leave empty to use the bundled official Informant toolchain manifest."
         },
         "informant.toolchain.allowSystemFallback": {
           "type": "boolean",
