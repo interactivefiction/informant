@@ -1,6 +1,7 @@
 'use strict';
 
 const vscode = require('vscode');
+const { openDocumentation } = require('./documentation-viewer');
 const cp = require('child_process');
 const fs = require('fs');
 const fsp = fs.promises;
@@ -373,17 +374,9 @@ async function testStory() {
 }
 
 async function openDocs() {
-  let value = expandHome(config().get('docs.uri', '').trim() || 'https://ganelson.github.io/inform-website/');
-  if (/^https?:\/\//i.test(value)) {
-    try { await vscode.commands.executeCommand('simpleBrowser.show', value); }
-    catch { await vscode.env.openExternal(vscode.Uri.parse(value)); }
-    return;
-  }
-  if (fs.existsSync(value) && fs.statSync(value).isDirectory()) {
-    const candidates = ['index.html', 'index.htm', 'WI_1.html'];
-    value = candidates.map(n => path.join(value, n)).find(fs.existsSync) || value;
-  }
-  await vscode.env.openExternal(vscode.Uri.file(value));
+  const toolchain = await selectedToolchain();
+  if (!toolchain?.internalRoot) throw new Error('Select an installed Informant toolchain with packaged documentation first.');
+  await openDocumentation(path.join(toolchain.internalRoot, 'Documentation'), contextRef);
 }
 
 async function createProject() {
