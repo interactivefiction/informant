@@ -1,11 +1,11 @@
 {
   "toolchains": [
     {
-      "id": "informant-toolchain-linux-x64-10.1.2",
-      "version": "10.1.2",
+      "id": "informant-toolchain-linux-x64-10.1.2a",
+      "version": "10.1.2a",
       "platform": "linux-x64",
-      "url": "https://github.com/interactivefiction/informant-toolchains/releases/download/inform-10.1.2-linux-x64/informant-toolchain-linux-x64-10.1.2.tar.gz",
-      "sha256": "341e5f9777f4fa33c374b174d4b7081fe034114faa0ebd39c60a9086e37e8016"
+      "url": "https://github.com/interactivefiction/informant-toolchains/releases/download/inform-10.1.2a-linux-x64/informant-toolchain-linux-x64-10.1.2.tar.gz",
+      "sha256": "8177b21c02afcf61168e34b297dc61706ffe702fca2b44c2684b330e4e495506"
     }
   ]
 }
