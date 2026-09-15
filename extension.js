@@ -2,6 +2,7 @@
 
 const vscode = require('vscode');
 const { openDocumentation } = require('./documentation-viewer');
+const { openPlayer } = require('./quixe-player');
 const cp = require('child_process');
 const fs = require('fs');
 const fsp = fs.promises;
@@ -344,6 +345,11 @@ async function playLatest(explicitStory) {
   if (!story) throw new Error('No compiled story file found. Compile first.');
 
   const toolchain = await selectedToolchain();
+  if (['.ulx', '.gblorb', '.glb'].includes(path.extname(story).toLowerCase())) {
+    if (!toolchain?.internalRoot) throw new Error('Select an installed Informant toolchain with packaged Quixe before playing.');
+    await openPlayer(path.join(toolchain.internalRoot, 'Player', 'Quixe'), story, contextRef);
+    return;
+  }
   let player = expandHome(config().get('player.command', '').trim());
   const args = config().get('player.args', []);
   if (!player && toolchain) {
