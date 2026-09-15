@@ -50,7 +50,43 @@ async function openPlayer(runtimeRoot, storyPath, context) {
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-${nonce}' 'unsafe-eval'; style-src ${source} 'unsafe-inline'; img-src ${source} data: blob:; font-src ${source}; connect-src 'none'; media-src 'none'; base-uri 'none'; form-action 'none';">
 <title>Informant Player</title>
 ${styles.map(name => `<link rel="stylesheet" href="${uri(name)}">`).join('\n')}
-<style>html, body { height: 100%; margin: 0; padding: 0; } #gameport { position: absolute; inset: 0; }</style>
+<style>html, body { height: 100%; margin: 0; padding: 0; } #gameport { position: absolute; inset: 0; }
+body, #gameport, #windowport,
+.BufferWindow, .GridWindow {
+  background-color: var(--vscode-editor-background);
+  color: var(--vscode-editor-foreground);
+}
+
+.Input, .Style_input {
+  color: var(--vscode-editor-foreground);
+}
+
+.Input {
+  caret-color: var(--vscode-editor-foreground);
+}
+
+.Style_blockquote {
+  background-color: transparent;
+}
+
+#loadingpane {
+  color: var(--vscode-editor-foreground);
+}
+
+#errorpane,
+#errorpane:hover,
+#errorpane.WarningPane,
+#errorpane.WarningPane:hover {
+  background-color: var(--vscode-editor-background);
+  color: var(--vscode-editor-foreground);
+  border-bottom-color: var(--vscode-errorForeground);
+}
+
+#errorpane.WarningPane,
+#errorpane.WarningPane:hover {
+  border-bottom-color: var(--vscode-editorWarning-foreground);
+}
+</style>
 <script nonce="${nonce}">
 const vscode = acquireVsCodeApi();
 function reportPlayerError(message) {
