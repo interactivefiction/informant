@@ -1,0 +1,80 @@
+/*
+ * Informant - Inform development environment for Visual Studio Code
+ * Copyright (C) 2026 OpcodeASM
+ *
+ * This file is part of Informant.
+ *
+ * Informant is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ *
+ * Informant is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Informant. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+/* Main document area */
+.wy-nav-content-wrap {
+    background: #181818;
+}
+
+.wy-nav-content {
+    background: #202020;
+    color: #d8d8d8;
+}
+
+/* Normal text */
+body,
+p,
+li {
+    color: #d8d8d8;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #eeeeee;
+}
+
+/* Links */
+a {
+    color: #62a8e5;
+}
+
+/* Inline code */
+code,
+.rst-content code {
+    background: #2b2b2b;
+    color: #e6e6e6;
+    border-color: #444;
+}
+
+/* Code blocks */
+.highlight {
+    background: #151515;
+}
+
+/* Tables */
+.rst-content table.docutils {
+    color: #d8d8d8;
+}
+
+.rst-content table.docutils td,
+.rst-content table.docutils th {
+    border-color: #444;
+}
+
+/* Sidebar */
+.wy-nav-side {
+    background: #111;
+}
+
+/* Top project area */
+.wy-side-nav-search {
+    background: #202020;
+}

@@ -1,0 +1,304 @@
+/*
+ * Informant - Inform development environment for Visual Studio Code
+ * Copyright (C) 2026 OpcodeASM
+ *
+ * This file is part of Informant.
+ *
+ * Informant is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ *
+ * Informant is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Informant. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+/*
+ * Informant documentation theme
+ * Dark-mode overrides for sphinx_rtd_theme
+ */
+
+/* ---------------------------------------------------------
+   Main document
+   --------------------------------------------------------- */
+
+html,
+body,
+.wy-nav-content-wrap {
+    background: #181818 !important;
+}
+
+.wy-nav-content {
+    background: #202020 !important;
+    color: #d8d8d8 !important;
+}
+
+.rst-content,
+.rst-content p,
+.rst-content li,
+.rst-content dd,
+.rst-content dt {
+    color: #d8d8d8;
+}
+
+.rst-content h1,
+.rst-content h2,
+.rst-content h3,
+.rst-content h4,
+.rst-content h5,
+.rst-content h6 {
+    color: #eeeeee;
+}
+
+
+/* ---------------------------------------------------------
+   Links
+   --------------------------------------------------------- */
+
+.rst-content a {
+    color: #68aee8;
+}
+
+.rst-content a:visited {
+    color: #8ab9df;
+}
+
+
+/* ---------------------------------------------------------
+   Left navigation
+   --------------------------------------------------------- */
+
+.wy-nav-side {
+    background: #101010 !important;
+}
+
+.wy-side-nav-search {
+    background: #202c3b !important;
+}
+
+.wy-menu-vertical a {
+    color: #cccccc !important;
+}
+
+.wy-menu-vertical a:hover {
+    background: #292929 !important;
+    color: #ffffff !important;
+}
+
+
+/* Expanded navigation sections */
+
+.wy-menu-vertical li.current {
+    background: #292929 !important;
+}
+
+.wy-menu-vertical li.current > a {
+    background: #303030 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.wy-menu-vertical li.current a {
+    color: #cccccc !important;
+}
+
+.wy-menu-vertical li.current a:hover {
+    background: #383838 !important;
+    color: #ffffff !important;
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+    border: none !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a {
+    background: #383838 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Search box
+   --------------------------------------------------------- */
+
+.wy-side-nav-search input[type="text"] {
+    background: #303030 !important;
+    color: #eeeeee !important;
+
+    border: 1px solid #555555 !important;
+    border-radius: 4px !important;
+
+    box-shadow: none !important;
+}
+
+.wy-side-nav-search input[type="text"]::placeholder {
+    color: #aaaaaa !important;
+}
+
+.wy-side-nav-search input[type="text"]:focus {
+    background: #383838 !important;
+    color: #ffffff !important;
+    border-color: #6c9ed4 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Tables
+   --------------------------------------------------------- */
+
+.rst-content table.docutils,
+.rst-content table.docutils td,
+.rst-content table.docutils th {
+    border-color: #555555 !important;
+}
+
+.rst-content table.docutils th {
+    background: #292929 !important;
+    color: #eeeeee !important;
+}
+
+.rst-content table.docutils td {
+    background: #242424 !important;
+    color: #dddddd !important;
+}
+
+/* Alternating rows -- keep contrast subtle */
+
+.rst-content table.docutils tr:nth-child(even) td {
+    background: #2c2c2c !important;
+    color: #dddddd !important;
+}
+
+.rst-content table.docutils tr:nth-child(odd) td {
+    background: #242424 !important;
+    color: #dddddd !important;
+}
+
+
+/* ---------------------------------------------------------
+   Inline code
+   --------------------------------------------------------- */
+
+code,
+.rst-content code,
+.rst-content tt {
+    background: #2b2b2b !important;
+    color: #eeeeee !important;
+    border: 1px solid #444444 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Code blocks
+   --------------------------------------------------------- */
+
+.highlight,
+.rst-content div[class^="highlight"] {
+    background: #151515 !important;
+}
+
+.highlight pre {
+    background: #151515 !important;
+    color: #dddddd !important;
+}
+
+
+/* ---------------------------------------------------------
+   Horizontal rules / borders
+   --------------------------------------------------------- */
+
+hr {
+    border-color: #444444 !important;
+}
+
+.rst-content table.docutils caption {
+    color: #cccccc !important;
+}
+
+/* =========================================================
+   INFORMANT: CYBERPUNK ACCENT LAYER
+   ========================================================= */
+
+:root {
+    --informant-electric-blue: #00bfff;
+    --informant-neon-yellow: #f4ff3d;
+    --informant-electric-pink: #ff2bd6;
+}
+
+/* Preserve the slate-navy identity panel; give it an electric edge. */
+.wy-side-nav-search {
+    border-bottom: 2px solid var(--informant-electric-blue) !important;
+    box-shadow: 0 2px 10px rgba(0, 191, 255, 0.16) !important;
+}
+
+.wy-side-nav-search > a,
+.wy-side-nav-search .wy-dropdown > a {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(0, 191, 255, 0.45);
+}
+
+/* Search stays restrained until focused. */
+.wy-side-nav-search input[type="text"]:focus {
+    border-color: var(--informant-electric-blue) !important;
+    box-shadow:
+        0 0 0 1px rgba(0, 191, 255, 0.30),
+        0 0 8px rgba(255, 43, 214, 0.16) !important;
+}
+
+/* Blue links; pink appears mainly during interaction. */
+.rst-content a {
+    color: var(--informant-electric-blue);
+}
+
+.rst-content a:visited {
+    color: #79d7ff;
+}
+
+.rst-content a:hover,
+.rst-content a:focus {
+    color: var(--informant-electric-pink);
+    text-shadow: 0 0 5px rgba(255, 43, 214, 0.30);
+}
+
+/* Structural blue rather than fluorescent headings. */
+.rst-content h2 {
+    border-left: 3px solid var(--informant-electric-blue);
+    padding-left: 0.45em;
+}
+
+/* Navigation uses blue for position, pink for motion. */
+.wy-menu-vertical li.current > a {
+    border-left: 3px solid var(--informant-electric-blue) !important;
+}
+
+.wy-menu-vertical a:hover {
+    border-left: 3px solid var(--informant-electric-pink) !important;
+    color: #ffffff !important;
+}
+
+/* Neon yellow is deliberately scarce. */
+code,
+.rst-content code,
+.rst-content tt {
+    color: var(--informant-neon-yellow) !important;
+}
+
+.rst-content table.docutils th {
+    border-bottom-color: var(--informant-electric-blue) !important;
+}
+
+/* A tiny unapologetic cyberpunk moment. */
+::selection {
+    background: var(--informant-electric-blue);
+    color: #101010;
+}
+
+hr {
+    border-color: rgba(0, 191, 255, 0.55) !important;
+}
+

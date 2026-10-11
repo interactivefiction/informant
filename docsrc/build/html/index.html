@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="En" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informant Overview &mdash; Informant 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/informant.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/Informant.ico"/>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Informant
+            <img src="_static/Informant128x128.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Informant Overview</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#operating-system-support">Operating System Support</a></li>
+<li><a class="reference internal" href="#attribution">Attribution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#installing-vscode">Installing VSCode</a></li>
+<li><a class="reference internal" href="#installing-informant">Installing Informant</a></li>
+<li><a class="reference internal" href="#workspace-trust">Workspace Trust</a></li>
+<li><a class="reference internal" href="#installing-a-toolchain">Installing A Toolchain</a></li>
+<li><a class="reference internal" href="#creating-your-first-project">Creating Your First Project</a></li>
+<li><a class="reference internal" href="#quick-actions-shortcuts">Quick Actions &amp; Shortcuts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#projects">Projects</a><ul>
+<li><a class="reference internal" href="#opening-a-project">Opening A Project</a></li>
+<li><a class="reference internal" href="#understanding-an-inform-project">Understanding an Inform Project</a></li>
+<li><a class="reference internal" href="#source">Source</a></li>
+<li><a class="reference internal" href="#build">Build</a></li>
+<li><a class="reference internal" href="#index">Index</a></li>
+<li><a class="reference internal" href="#other-project-files">Other Project Files</a></li>
+<li><a class="reference internal" href="#working-with-the-project-in-informant">Working With the Project in Informant</a></li>
+<li><a class="reference internal" href="#the-informant-project-structure">The Informant Project Structure</a></li>
+<li><a class="reference internal" href="#a-more-complete-view-of-the-project">A More Complete View of the Project</a></li>
+<li><a class="reference internal" href="#nondestructive-conversion">Nondestructive Conversion</a></li>
+<li><a class="reference internal" href="#converting-existing-inform-projects">Converting Existing Inform Projects</a></li>
+<li><a class="reference internal" href="#saving-a-project">Saving A Project</a></li>
+<li><a class="reference internal" href="#project-state-details">Project State Details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compiling-and-playing">Compiling And Playing</a><ul>
+<li><a class="reference internal" href="#compile-story">Compile Story</a></li>
+<li><a class="reference internal" href="#compile-and-play">Compile And Play</a></li>
+<li><a class="reference internal" href="#play-story">Play Story</a></li>
+<li><a class="reference internal" href="#build-errors">Build Errors</a></li>
+<li><a class="reference internal" href="#cleaning-a-project">Cleaning A Project</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inform-documentation-and-index">Inform Documentation And Index</a><ul>
+<li><a class="reference internal" href="#inform-documentation">Inform Documentation</a></li>
+<li><a class="reference internal" href="#inform-index">Inform Index</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inform-extensions">Inform Extensions</a><ul>
+<li><a class="reference internal" href="#types-of-extensions">Types Of Extensions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skeins-and-recorded-play">Skeins And Recorded Play</a><ul>
+<li><a class="reference internal" href="#the-skein-in-the-inform-ide">The Skein in the Inform IDE</a></li>
+<li><a class="reference internal" href="#informant-s-interpretation-of-the-skein">Informant’s Interpretation of the Skein</a></li>
+<li><a class="reference internal" href="#test-vectors-iskein">Test Vectors: <code class="docutils literal notranslate"><span class="pre">.iskein</span></code></a></li>
+<li><a class="reference internal" href="#endpoints-and-compatibility">Endpoints and Compatibility</a></li>
+<li><a class="reference internal" href="#compositions-icomposition">Compositions: <code class="docutils literal notranslate"><span class="pre">.icomposition</span></code></a></li>
+<li><a class="reference internal" href="#from-recorded-play-to-executable-tests">From Recorded Play to Executable Tests</a></li>
+<li><a class="reference internal" href="#collections-icollection">Collections: <code class="docutils literal notranslate"><span class="pre">.icollection</span></code></a></li>
+<li><a class="reference internal" href="#two-views-of-the-same-recorded-play">Two Views of the Same Recorded Play</a></li>
+<li><a class="reference internal" href="#the-translation-at-a-glance">The Translation at a Glance</a></li>
+<li><a class="reference internal" href="#why-repurpose-the-skein">Why Repurpose the Skein?</a></li>
+<li><a class="reference internal" href="#record-skein">Record Skein</a></li>
+<li><a class="reference internal" href="#play-skein">Play Skein</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#compile-test-story">Compile Test Story</a></li>
+<li><a class="reference internal" href="#from-recorded-skein-to-starter-vector">From Recorded Skein to Starter Vector</a></li>
+<li><a class="reference internal" href="#starter-vectors-establish-reproducible-state">Starter Vectors Establish Reproducible State</a></li>
+<li><a class="reference internal" href="#recording-continuation-vectors">Recording Continuation Vectors</a></li>
+<li><a class="reference internal" href="#starter-and-continuation-vectors">Starter and Continuation Vectors</a></li>
+<li><a class="reference internal" href="#vectors-as-recorded-state-transitions">Vectors as Recorded State Transitions</a></li>
+<li><a class="reference internal" href="#compositions-reconstruct-complete-playable-paths">Compositions Reconstruct Complete Playable Paths</a></li>
+<li><a class="reference internal" href="#why-compositions-matter">Why Compositions Matter</a></li>
+<li><a class="reference internal" href="#qualified-playables">Qualified Playables</a></li>
+<li><a class="reference internal" href="#testing-observations-rather-than-implementations">Testing Observations Rather Than Implementations</a></li>
+<li><a class="reference internal" href="#nondeterminism-and-the-limits-of-an-assertion">Nondeterminism and the Limits of an Assertion</a></li>
+<li><a class="reference internal" href="#the-recording-and-testing-methodology">The Recording and Testing Methodology</a></li>
+<li><a class="reference internal" href="#collections-and-testing-intent">Collections and Testing Intent</a></li>
+<li><a class="reference internal" href="#independent-test-execution">Independent Test Execution</a></li>
+<li><a class="reference internal" href="#what-a-passing-test-means">What a Passing Test Means</a></li>
+<li><a class="reference internal" href="#methodology-summary">Methodology Summary</a></li>
+<li><a class="reference internal" href="#choosing-a-verification-type">Choosing A Verification Type</a></li>
+<li><a class="reference internal" href="#case-1-step-the-journey-is-evidence">Case 1: Step – The Journey Is Evidence</a></li>
+<li><a class="reference internal" href="#case-2-end-the-destination-is-evidence">Case 2: End – The Destination Is Evidence</a></li>
+<li><a class="reference internal" href="#case-3-none-do-not-invent-evidence">Case 3: None – Do Not Invent Evidence</a></li>
+<li><a class="reference internal" href="#three-different-testing-intentions">Three Different Testing Intentions</a></li>
+<li><a class="reference internal" href="#creating-reliable-tests">Creating Reliable Tests</a></li>
+<li><a class="reference internal" href="#choose-purposeful-playables">Choose Purposeful Playables</a></li>
+<li><a class="reference internal" href="#keep-starter-vectors-focused">Keep Starter Vectors Focused</a></li>
+<li><a class="reference internal" href="#use-continuations-to-factor-shared-gameplay">Use Continuations to Factor Shared Gameplay</a></li>
+<li><a class="reference internal" href="#do-not-over-assert">Do Not Over-Assert</a></li>
+<li><a class="reference internal" href="#treat-repeated-instability-as-information">Treat Repeated Instability as Information</a></li>
+<li><a class="reference internal" href="#prefer-meaningful-behavioral-boundaries">Prefer Meaningful Behavioral Boundaries</a></li>
+<li><a class="reference internal" href="#keep-independent-tests-independent">Keep Independent Tests Independent</a></li>
+<li><a class="reference internal" href="#a-practical-rule">A Practical Rule</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#toolchains">Toolchains</a><ul>
+<li><a class="reference internal" href="#toolchain-components">Toolchain Components</a></li>
+<li><a class="reference internal" href="#compilation">Compilation</a></li>
+<li><a class="reference internal" href="#platform-packages">Platform Packages</a></li>
+<li><a class="reference internal" href="#versioned-environments">Versioned Environments</a></li>
+<li><a class="reference internal" href="#toolchain-sources-and-releases">Toolchain Sources and Releases</a></li>
+<li><a class="reference internal" href="#install-toolchain">Install Toolchain</a></li>
+<li><a class="reference internal" href="#manage-toolchains">Manage Toolchains</a></li>
+<li><a class="reference internal" href="#informant-storage">Informant Storage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#resources">Resources</a><ul>
+<li><a class="reference internal" href="#visual-studio-code">Visual Studio Code</a></li>
+<li><a class="reference internal" href="#id3">Inform</a></li>
+<li><a class="reference internal" href="#informant">Informant</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#licensing">Licensing</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#informant-vscode-plugin">Informant VSCode Plugin</a></li>
+<li><a class="reference internal" href="#informant-inform-toolchain-software-bill-of-materials">Informant Inform Toolchain Software Bill of Materials</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Informant</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Informant Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="informant-overview">
+<h1>Informant Overview<a class="headerlink" href="#informant-overview" title="Permalink to this heading"></a></h1>
+<p>Informant is an integrated development environment for authoring,
+compiling, playing, and testing interactive fiction written with Inform 7.</p>
+<img alt="Informant environment with project index and code editor open." src="_images/Informant_1.png" />
+<p>Setting it up is as easy as installing a VS Code extension. No additional
+installation of the standard Inform 7 IDE is required. Informant projects
+remain ordinary Inform projects and any Informant-specific state is kept
+separate from the story source so that the project itself remains recognizable
+and useful outside of Informant. Installing Informant will not affect or
+interfere with any other Inform tools you have set up on your computer.  This
+means you can use Informant on the same system as the standard Inform 7
+IDE or even tools like Vimform7.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<p>The Informant VS Code extension provides everything needed to develop
+and test an Inform work. Informant deliberately treats the compiler
+toolchain as part of the development environment.  A separate system
+installation of Inform is not required for Informant’s normal build
+workflow. Below is a list of the main things you can do with Informant:</p>
+<ul class="simple">
+<li><p>Create a new Inform project.</p></li>
+<li><p>Open an existing Inform project.</p></li>
+<li><p>Edit Inform source inside Visual Studio Code.</p></li>
+<li><p>Compile a story using a managed Inform toolchain.</p></li>
+<li><p>Play a story you are working on.</p></li>
+<li><p>View compiler errors and build information.</p></li>
+<li><p>Jump to line of code when errors are found.</p></li>
+<li><p>Read the Inform documentation.</p></li>
+<li><p>View the complete generated Inform world index.</p></li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">.i7x</span></code> Inform extensions.</p></li>
+<li><p>Record and replay skeins.</p></li>
+<li><p>Build interaction vectors and record play sessions for testing.</p></li>
+<li><p>Organize reusable tests into collections.</p></li>
+<li><p>Run automated tests and compare captured output with expected output.</p></li>
+<li><p>Export test results for later inspection.</p></li>
+<li><p>Install, manage, and select Inform toolchains.</p></li>
+<li><p>Clean generated project files.</p></li>
+<li><p>Native compiler toolchains isolated from other Inform
+installations on the computer.</p></li>
+</ul>
+<p>Users of the standard Inform IDE should feel at home with Informant. Many of
+the familiar workflows are available, including viewing documentation or
+playing a story alongside the source. Informant also supports the other
+side-by-side views commonly used while developing an Inform project. Skeins
+are the major exception: Informant uses them differently as part of its
+recording and testing workflow, as described later in this documentation.</p>
+<img alt="Split view of code and documentation." src="_images/Informant_12.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="operating-system-support">
+<h2>Operating System Support<a class="headerlink" href="#operating-system-support" title="Permalink to this heading"></a></h2>
+<p>As of release 1.0 Informant supports the following operating systems
+thanks to the broad compatibility of Inform/Inweb/Intest/Quixe and the
+VSCode editor:</p>
+<ul class="simple">
+<li><p>macOS (Intel / Arm)</p></li>
+<li><p>Windows (10 / 11)</p></li>
+<li><p>Linux (RPM / DEB)</p></li>
+</ul>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="attribution">
+<h2>Attribution<a class="headerlink" href="#attribution" title="Permalink to this heading"></a></h2>
+<p>Informant would not be possible without the hard work of many other people and
+I have a deep appreciation for the effort the community has put into keeping the
+Inform ecosystem moving forward. All code, binaries, and documentation associated
+with Inform, Inweb, Intest, Quixe, Inblorb, Inform IDE, and the Inform Extension
+libraries fall under the licensing established by their respective owners.</p>
+<p>You can learn more about these projects at the following links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ganelson/inweb">Inweb</a></p></li>
+<li><p><a class="reference external" href="https://github.com/interactivefiction/intest">Intest</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ganelson/inform">Inform</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ganelson/inform-website">Inform Website and Documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/erkyrath/quixe">Quixe</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ptomato/inform7-ide">Inform 7 IDE for GNOME</a></p></li>
+<li><p><a class="reference external" href="https://github.com/DavidKinder/Windows-Inform7">Windows Inform 7</a></p></li>
+<li><p><a class="reference external" href="https://github.com/TobyLobster/Inform">Inform for macOS</a></p></li>
+<li><p><a class="reference external" href="https://github.com/i7/extensions">Inform 7 Extension Library</a></p></li>
+</ul>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<p>Informant requires:</p>
+<ul class="simple">
+<li><p>Visual Studio Code.</p></li>
+<li><p>The Informant Visual Studio Code extension.</p></li>
+</ul>
+<p>The Inform compiler does not need to be installed separately.  Informant can
+install and manage its own toolchains.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="installing-vscode">
+<h2>Installing VSCode<a class="headerlink" href="#installing-vscode" title="Permalink to this heading"></a></h2>
+<p>If you are not familiar with VSCode, you will want to review the two links
+below.  The first link explains how to install VSCode for your computer and
+there are detailed steps for Windows, macOS, and Linux documented.  The second
+link explains something I feel can be a little confusing about VSCode the
+first time you use it… workspace “trust”.  In short workspace “trust”
+is an action you will take the first time you set up a new project folder to
+begin your IF work.  My recommendation is to make a single folder to hold
+all of your various IF works and to establish trust for that top level folder.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/getstarted/overview">Getting Started with Visual Studio Code</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/editing/workspaces/workspace-trust">Visual Studio Code Workspace Trust</a></p></li>
+</ul>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="installing-informant">
+<h2>Installing Informant<a class="headerlink" href="#installing-informant" title="Permalink to this heading"></a></h2>
+<p>Install Informant through the Visual Studio Code Extensions view.  Open the
+Extensions view, search for <strong>Informant</strong>, and install the extension.
+Informant may also be installed from a <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> package during testing or
+when using a package obtained outside of the Visual Studio Marketplace.  In
+Visual Studio Code, open the Extensions view, select the <code class="docutils literal notranslate"><span class="pre">...</span></code> menu, choose
+<strong>Install from VSIX…</strong>, and select the Informant package. After installation,
+Informant commands are available from the Visual Studio Code Command Palette.
+Open the Command Palette and type <code class="docutils literal notranslate"><span class="pre">Informant</span></code> to see the commands available.</p>
+<p>The Command Palette can be opened using the following keyboard shortcuts:</p>
+<ul class="simple">
+<li><p><strong>Windows:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code></p></li>
+<li><p><strong>Linux:</strong> <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code></p></li>
+<li><p><strong>macOS:</strong> <code class="docutils literal notranslate"><span class="pre">Command+Shift+P</span></code></p></li>
+</ul>
+<p>There are also several ways to open the Command Palette without using a
+keyboard shortcut:</p>
+<ul class="simple">
+<li><p>From the menu bar, choose <strong>View &gt; Command Palette…</strong></p></li>
+<li><p>Select the <strong>Manage</strong> gear icon in the lower-left corner of Visual Studio
+Code and choose <strong>Command Palette…</strong></p></li>
+<li><p>On versions of Visual Studio Code that display the Command Center at the
+top of the window, select it and choose or search for a command.</p></li>
+</ul>
+<p>Once the Command Palette is open, type <code class="docutils literal notranslate"><span class="pre">Informant</span></code>.  Visual Studio Code
+will filter the list to show the commands provided by Informant.</p>
+<img alt="Informant commands can be accessed via the VSCode Command Palette." src="_images/Informant_4.png" />
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Informant Commands</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Informant: Create New Project</p></td>
+<td><p>Create a new Inform project.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Open or Convert Project</p></td>
+<td><p>Open or convert an existing Inform project.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Compile Story</p></td>
+<td><p>Compile the current story.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Compile and Play</p></td>
+<td><p>Compile the current story and begin playing it.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Play Story</p></td>
+<td><p>Play the current compiled story.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Compile Test Story</p></td>
+<td><p>Build the story for the testing workflow.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Play For Test</p></td>
+<td><p>Play and capture story interaction for testing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Record Skein</p></td>
+<td><p>Record a reusable interaction path.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Play Skein</p></td>
+<td><p>Replay a recorded skein.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Open Test Manager</p></td>
+<td><p>Open the test collection and playable manager.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Show Build Errors</p></td>
+<td><p>Show errors from the current build.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Open Documentation</p></td>
+<td><p>Open Inform documentation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Open Index</p></td>
+<td><p>Open the generated Inform Index.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Install .i7x Extension</p></td>
+<td><p>Install an Inform language extension.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Clean Project</p></td>
+<td><p>Remove generated build material.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Install Toolchain</p></td>
+<td><p>Install an Informant compiler toolchain.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Manage Toolchains</p></td>
+<td><p>Manage installed Informant toolchains.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informant: Select Project Toolchain</p></td>
+<td><p>Select the toolchain used by the current project.</p></td>
+</tr>
+<tr class="row-even"><td><p>Informant: Reveal Informant Storage</p></td>
+<td><p>Reveal Informant’s managed storage location.</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="workspace-trust">
+<h2>Workspace Trust<a class="headerlink" href="#workspace-trust" title="Permalink to this heading"></a></h2>
+<p>Visual Studio Code may ask whether you trust a folder when it is opened for
+the first time.  This is a normal Visual Studio Code security feature.
+If a project is opened in Visual Studio Code’s Restricted Mode, functionality
+that requires anything more complex than viewing code will be unavailable.
+Only mark a folder as trusted when you trust the files it contains and their
+source.</p>
+<img alt="_images/Informant_11.png" src="_images/Informant_11.png" />
+<img alt="_images/Informant_58.png" src="_images/Informant_58.png" />
+<img alt="_images/Informant_59.png" src="_images/Informant_59.png" />
+<img alt="_images/Informant_60.png" src="_images/Informant_60.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="installing-a-toolchain">
+<h2>Installing A Toolchain<a class="headerlink" href="#installing-a-toolchain" title="Permalink to this heading"></a></h2>
+<p>Informant uses self-contained toolchains rather than relying on an Inform
+installation elsewhere on the computer. A toolchain contains the native
+compiler programs and the supporting Inform files required by the compiler
+pipeline.  For Inform 10, the principal compiler pipeline is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inform7</span> <span class="o">-&gt;</span> <span class="n">inform6</span> <span class="o">-&gt;</span> <span class="n">inblorb</span>
+</pre></div>
+</div>
+<p>Use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Install</span> <span class="n">Toolchain</span>
+</pre></div>
+</div>
+<p>in VSCode to install an available toolchain.  Informant obtains the appropriate
+toolchain archive, verifies it, extracts it into Informant-controlled storage,
+and makes it available to projects.  Note: On macOS, Informant uses the
+operating system’s <code class="docutils literal notranslate"><span class="pre">/usr/bin/curl</span></code> for toolchain acquisition rather than OS
+HTTP services. Hash verification, extraction, installation, and use of the resulting
+package then follow the normal Informant toolchain workflow.</p>
+<img alt="Installing Informant toolchain." src="_images/Informant_14.png" />
+<p>Most users will want to download the official Informant toolchain; however, it is
+also possible to install toolchains manually if you want to create your own
+custom toolkit.  An example of using the download method is illustrated below.</p>
+<img alt="Installing Informant toolchain." src="_images/Informant_19.png" />
+<p>After selecting the download option, you will be presented with the latest toolchain
+available for your OS.  Informant will always download the most recent production
+toolchain.  If you wish to use an older toolchain, you can always obtain the kit
+you need from the Informant toolchain github (see below for links).</p>
+<img alt="Installing Informant toolchain." src="_images/Informant_20.png" />
+<p>Informant toolchains can be thought of, at a high level, as the basic set of
+resources and programs required to deliver an Inform 7 IDE experience.  Generally
+speaking, an Informant toolchain package is roughly equivalent to the contents
+of the standard Inform IDE distributions with the exception that it simply
+does not contain an IDE. For more information on Informant toolchains,
+how to reproduce them, or to use them in your own projects, please go to:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/interactivefiction/informant-toolchains/actions">Informant Tool Chain Actions</a></p></li>
+<li><p><a class="reference external" href="https://github.com/interactivefiction/informant-toolchains/releases">Informant Tool Chain Releases</a></p></li>
+</ul>
+<p>For completeness, here is a high-level view of the contents of a generic Informant
+toolchain package:</p>
+<img alt="Top level view of Informant toolchain." src="_images/Informant_13.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="creating-your-first-project">
+<h2>Creating Your First Project<a class="headerlink" href="#creating-your-first-project" title="Permalink to this heading"></a></h2>
+<p>Starting with a new project after you have installed Informant is a simple process
+very similar to the steps in the standard IDE.  However, in the case of Informant you will
+use the VSCode palette command and follow the prompts to choose the location
+and name of the project.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Create</span> <span class="n">New</span> <span class="n">Project</span>
+</pre></div>
+</div>
+<img alt="Create Project command." src="_images/Informant_16.png" />
+<p>Informant creates the project structure required for an Inform work and opens
+the project in Visual Studio Code.  The story source can then be edited in the
+normal Visual Studio Code editor. If Visual Studio Code asks whether the newly
+opened project folder should be trusted, review the folder and grant trust
+before compiling or running the story.  Below is an image of the dialog box
+associated with creating a new project.</p>
+<img alt="Create Project Dialog." src="_images/Informant_15.png" />
+<p>Once your new project is created, you will need to browse into the source folder
+and choose the story.ni file so you can begin editing.  The image below shows
+the source folder open and the story.ni selected and opened for editing.</p>
+<img alt="Editing." src="_images/Informant_18.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="quick-actions-shortcuts">
+<h2>Quick Actions &amp; Shortcuts<a class="headerlink" href="#quick-actions-shortcuts" title="Permalink to this heading"></a></h2>
+<p>When you are editing source code using Informant, you will likely want to quickly
+compile your code, play your project, or perform many of the other Informant
+commands without needing to access the command palette.  Informant allows you to
+pin your favorite commands to upper-right side of the editor window.  One shortcut
+is always available in the right corner of the editor screen: Source Action Settings.
+Activating this opens a check box list that allows you to choose which shortcuts are
+pinned to the right corner of your editor screen.  In practice the total number of
+shortcuts will vary depending on other extensions you may have installed, the resolution
+of your screen, and other factors.  Experiment with the shortcuts and find a configuration
+that works best for your workflow!  The image below illustrates the quick actions on the
+right side of the editor screen and the check box list that can be opened using the
+three-slider icon to the rightmost side of the quick action icon list.</p>
+<img alt="_images/Informant_21.png" src="_images/Informant_21.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="projects">
+<h1>Projects<a class="headerlink" href="#projects" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<section id="opening-a-project">
+<h2>Opening A Project<a class="headerlink" href="#opening-a-project" title="Permalink to this heading"></a></h2>
+<p>Informant can open standard Inform projects in addition to Informant projects.
+When working with a standard Inform project, Informant will create a .informant
+folder alongside the .inform folder representing your project in order to allow
+you to use the various skein / vector / composition features of Informant.  This
+folder can be deleted if you do not need it later. Use the following command to
+select an existing Inform or Informant project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Open</span> <span class="ow">or</span> <span class="n">Convert</span> <span class="n">Project</span>
+</pre></div>
+</div>
+<p>Alternatively, you can also open a project directly by simply opening its folder.
+This method will bypass the option to convert the project to an Informant project.
+Many times this approach is used when using Informant for the first time.</p>
+<img alt="_images/Informant_24.png" src="_images/Informant_24.png" />
+</section>
+<section id="understanding-an-inform-project">
+<h2>Understanding an Inform Project<a class="headerlink" href="#understanding-an-inform-project" title="Permalink to this heading"></a></h2>
+<p>When an Inform project is opened in Informant, its files and directories are
+displayed in the Visual Studio Code Explorer.  This provides direct access to
+the normal structure of an Inform project rather than hiding the project behind
+a specialized editor interface.</p>
+<img alt="_images/Informant_22.png" src="_images/Informant_22.png" />
+<p>A typical project contains three primary directories:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Project.inform/
+├── Build/
+├── Index/
+└── Source/
+</pre></div>
+</div>
+<p>These directories contain the source text of the story along with files
+generated by Inform during compilation.</p>
+</section>
+<section id="source">
+<h2>Source<a class="headerlink" href="#source" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Source</span></code> directory contains the Inform source code for the project.  The
+main source file is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Source/
+└── story.ni
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">story.ni</span></code> is the primary source file for an Inform project.  This is where
+rooms, objects, actions, rules, descriptions, and the other elements of the
+story are normally written. Informant opens and edits <code class="docutils literal notranslate"><span class="pre">story.ni</span></code> as a normal
+text file in Visual Studio Code.  In the example shown above, <code class="docutils literal notranslate"><span class="pre">story.ni</span></code>
+contains a small story defining two rooms as well as an image and a sound resource.
+Depending upon the project and the version of Inform being used, the
+<code class="docutils literal notranslate"><span class="pre">Source</span></code> directory may also contain additional files maintained by Inform.</p>
+</section>
+<section id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Build</span></code> directory contains intermediate and final files produced while
+the story is being compiled. In the example above it contains files such as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Build/
+├── auto.inf
+├── Debug log.txt
+├── output-test.ulx
+├── output.gblorb
+├── output.ulx
+├── Problems.html
+└── StatusCblorb.html
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">auto.inf</span></code> is generated from the Inform source during compilation and is
+used as input to the Inform 6 compiler. Story files such as <code class="docutils literal notranslate"><span class="pre">output.ulx</span></code>
+and <code class="docutils literal notranslate"><span class="pre">output.gblorb</span></code> are compiled forms of the project.  The exact files
+present in <code class="docutils literal notranslate"><span class="pre">Build</span></code> depend upon how the project was compiled and packaged.
+Inform also places diagnostic and status information in this directory.
+Files such as <code class="docutils literal notranslate"><span class="pre">Problems.html</span></code> and <code class="docutils literal notranslate"><span class="pre">StatusCblorb.html</span></code> may therefore appear
+as part of the build process. These are build products rather than the
+author’s primary source text.  In normal use they are generated and updated
+by the Inform toolchain.</p>
+</section>
+<section id="index">
+<h2>Index<a class="headerlink" href="#index" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Index</span></code> directory contains the Inform Index generated when the project
+is compiled. In the example above it contains files such as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Index/
+├── Details/
+├── Actions.html
+├── Contents.html
+├── Headings.xml
+├── Kinds.html
+├── Phrasebook.html
+├── Rules.html
+├── Scenes.html
+├── Welcome.html
+└── World.html
+</pre></div>
+</div>
+<p>The Index is generated from the project and describes the structure Inform
+has discovered in the source.  Among other things, it can provide information
+about the story world, actions, rules, scenes, kinds, phrases, and source
+headings. Informant can display this generated Index alongside the source code,
+allowing the author to move between writing the story and examining Inform’s
+analysis of it without leaving Visual Studio Code.</p>
+</section>
+<section id="other-project-files">
+<h2>Other Project Files<a class="headerlink" href="#other-project-files" title="Permalink to this heading"></a></h2>
+<p>An Inform project can also contain files at the project level.  The example
+shown above includes:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gameinfo.dbg
+manifest.plist
+Metadata.iFiction
+notes.rtf
+Release.blurb
+Settings.plist
+Skein.skein
+uuid.txt
+</pre></div>
+</div>
+<p>These files are part of the surrounding Inform project and may contain project
+settings, release information, metadata, notes, debugging information, skein
+data, or other information used by Inform and its development tools. Not every
+project will contain exactly the same set of generated files.  Some files appear
+only after particular build or release operations, and the contents of the
+project can vary between Inform versions.</p>
+</section>
+<section id="working-with-the-project-in-informant">
+<h2>Working With the Project in Informant<a class="headerlink" href="#working-with-the-project-in-informant" title="Permalink to this heading"></a></h2>
+<p>Although Visual Studio Code makes the entire project visible, authors will
+normally spend most of their time editing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Source/story.ni
+</pre></div>
+</div>
+<p>The remaining directories and files provide the supporting structure used by
+Inform to compile, analyze, test, and package the story. Making this structure
+visible is also useful when diagnosing a build, examining generated output,
+or working with different Inform toolchains. Informant does not require the
+project to be converted into a separate Informant-specific project format;
+the Inform project itself remains the project.</p>
+</section>
+<section id="the-informant-project-structure">
+<h2>The Informant Project Structure<a class="headerlink" href="#the-informant-project-structure" title="Permalink to this heading"></a></h2>
+<p>Informant can convert an existing Inform project into an Informant project.
+This conversion is <strong>nondestructive</strong>.  Informant does not modify or replace
+the original Inform project.  Instead, it creates a copy of the project using
+the Informant project directory structure, leaving the original project intact.</p>
+<img alt="_images/Informant_25.png" src="_images/Informant_25.png" />
+<p>The screenshot above shows the same Inform project used in the previous
+example after it has been converted into an Informant project. At the top level,
+the Informant project brings the Inform project and its associated materials
+together:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Informant Project/
+├── gfx.inform/
+└── gfx.materials/
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">gfx.inform</span></code> directory contains the familiar Inform project structure.
+Its <code class="docutils literal notranslate"><span class="pre">Build</span></code>, <code class="docutils literal notranslate"><span class="pre">Index</span></code>, <code class="docutils literal notranslate"><span class="pre">Source</span></code>, and other Inform files remain organized
+as expected by Inform. The <code class="docutils literal notranslate"><span class="pre">gfx.materials</span></code> directory contains the resources
+associated with the story:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gfx.materials/
+├── Figures/
+│   ├── 1.png
+│   └── images.jpg
+├── Release/
+│   └── gfx.gblorb
+└── Sounds/
+    └── Theme.ogg
+</pre></div>
+</div>
+</section>
+<section id="a-more-complete-view-of-the-project">
+<h2>A More Complete View of the Project<a class="headerlink" href="#a-more-complete-view-of-the-project" title="Permalink to this heading"></a></h2>
+<p>One of the benefits of the Informant project structure is that the source and
+the materials belonging to the story are visible together in the Visual Studio
+Code Explorer. In a traditional Inform project view, the author primarily sees
+the contents of the <code class="docutils literal notranslate"><span class="pre">.inform</span></code> directory:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gfx.inform/
+├── Build/
+├── Index/
+├── Source/
+└── ...
+</pre></div>
+</div>
+<p>After conversion, Informant presents the larger project:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Informant Project/
+├── gfx.inform/
+│   ├── Build/
+│   ├── Index/
+│   ├── Source/
+│   └── ...
+│
+└── gfx.materials/
+    ├── Figures/
+    ├── Release/
+    └── Sounds/
+</pre></div>
+</div>
+<p>This provides a more holistic view of the story.  Source code, figures, sounds,
+generated Inform files, and release artifacts can all be reached from the same
+workspace. The relationship is particularly useful when working with multimedia.
+In the example above, the source contains:</p>
+<div class="highlight-inform7 notranslate"><div class="highlight"><pre><span></span>Figure of Woodlands is the file <span class="s2">&quot;1.png&quot;</span>.
+Sound of Theme Music is the file <span class="s2">&quot;Theme.ogg&quot;</span>.
+</pre></div>
+</div>
+<p>The corresponding files are immediately visible in <code class="docutils literal notranslate"><span class="pre">gfx.materials/Figures</span></code>
+and <code class="docutils literal notranslate"><span class="pre">gfx.materials/Sounds</span></code>.  The author can therefore see both the source
+declaration and the resources it refers to as parts of the same project.</p>
+</section>
+<section id="nondestructive-conversion">
+<h2>Nondestructive Conversion<a class="headerlink" href="#nondestructive-conversion" title="Permalink to this heading"></a></h2>
+<p>Converting an existing project to the Informant project structure does not
+alter the original project.  Informant creates a separate copy for use with
+Informant and leaves the original Inform project intact. This makes it possible
+to bring an existing Inform project into Informant without sacrificing the
+original project or requiring it to be permanently migrated away from its
+existing form.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="converting-existing-inform-projects">
+<h2>Converting Existing Inform Projects<a class="headerlink" href="#converting-existing-inform-projects" title="Permalink to this heading"></a></h2>
+<p>Informant allows you to convert existing Inform projects to have the same
+structure as an Informant project.  This process is non-destructive and the
+original Inform project remains as is.  To perform the conversion, Informant
+makes a copy of the original inform project to create the Informant version.
+When you use the Open Project command, the option to convert the project
+is available if you are opening a standard Inform project.</p>
+<img alt="_images/Informant_23.png" src="_images/Informant_23.png" />
+<p>The primary difference between an Inform project and an Informant project is
+directory structure.  Informant projects include the .materials folder in
+addition to the standard .inform project folder.  The .informant folder acts
+as a container for both of these folders.  This was done in order to allow
+for access to the .materials folder within the context of VSCode.  This is
+helpful when working with or adding files to the materials folder while
+developing your project.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="saving-a-project">
+<h2>Saving A Project<a class="headerlink" href="#saving-a-project" title="Permalink to this heading"></a></h2>
+<p>Story source is edited and saved using the normal Visual Studio Code editing
+commands.  Informant does not replace Visual Studio Code’s normal file
+editing and saving behavior.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="project-state-details">
+<h2>Project State Details<a class="headerlink" href="#project-state-details" title="Permalink to this heading"></a></h2>
+<p>An Informant project contains a <code class="docutils literal notranslate"><span class="pre">.informant</span></code> directory used to store
+Informant-specific project state. Unlike the <code class="docutils literal notranslate"><span class="pre">.inform</span></code> and <code class="docutils literal notranslate"><span class="pre">.materials</span></code>
+directories described above, the contents of <code class="docutils literal notranslate"><span class="pre">.informant</span></code> are maintained by
+Informant and support features provided by the extension rather than by the
+Inform compiler itself. Keeping this information in a separate directory
+allows Informant to add project management and testing facilities without
+altering the underlying structure of the Inform project.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.informant/
+├── collections/
+├── compositions/
+├── test-vectors/
+├── working/
+└── informant.json
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">informant.json</span></code> file contains Informant project state and configuration.
+The remaining directories contain data used by Informant’s recording and
+testing system. In particular, <code class="docutils literal notranslate"><span class="pre">test-vectors</span></code>, <code class="docutils literal notranslate"><span class="pre">compositions</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">collections</span></code> provide the persistent representation of the tests displayed
+and managed through the Informant Test Manager.</p>
+<img alt="_images/Informant_26.png" src="_images/Informant_26.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">test-vectors</span></code> directory contains recorded test vectors. Each vector is
+stored in an Informant-specific <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> file. A test vector records a
+sequence of player commands and the corresponding story interaction captured
+during recording, allowing that sequence to be played again or used as part of
+a larger test. The screenshot above shows these files in the Explorer while the
+same recorded vectors appear in the <strong>Test Vector Library</strong> of the Test Manager.
+Selecting a vector in the Test Manager exposes information about the recording,
+including its endpoints and recorded transcript.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.informant/
+└── test-vectors/
+    ├── &lt;guid&gt;.iskein
+    ├── &lt;guid&gt;.iskein
+    └── ...
+</pre></div>
+</div>
+<p>The filenames use identifiers rather than the descriptive names displayed in
+the Test Manager. Informant maintains the relationship between the stored
+objects and their user-facing representation, so authors normally work with
+these recordings through the Test Manager rather than by editing the files
+directly.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">compositions</span></code> directory contains <code class="docutils literal notranslate"><span class="pre">.icomposition</span></code> files. A composition
+is an Informant-specific structure that combines recorded vectors into an
+ordered playable sequence. This allows smaller recordings to be reused as
+building blocks for longer interactions instead of requiring every complete
+test path to be recorded independently.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.informant/
+└── compositions/
+    ├── &lt;guid&gt;.icomposition
+    ├── &lt;guid&gt;.icomposition
+    └── ...
+</pre></div>
+</div>
+<p>Compositions are managed through the <strong>Compositions</strong> portion of the Test
+Manager. The files in this directory are the persistent project data behind
+those compositions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">collections</span></code> directory contains <code class="docutils literal notranslate"><span class="pre">.icollection</span></code> files. Collections are
+Informant’s organizational layer for grouping playables into test suites. They
+allow related tests to be collected and selected as a unit when testing a
+story.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.informant/
+└── collections/
+    ├── &lt;guid&gt;.icollection
+    ├── &lt;guid&gt;.icollection
+    └── ...
+</pre></div>
+</div>
+<p>In the screenshot above, the Test Manager has the <strong>Basic Acceptance Tests</strong>
+suite selected. The collection data stored under <code class="docutils literal notranslate"><span class="pre">.informant/collections</span></code> is
+what allows these project-specific test groupings to persist between Informant
+sessions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.iskein</span></code>, <code class="docutils literal notranslate"><span class="pre">.icomposition</span></code>, and <code class="docutils literal notranslate"><span class="pre">.icollection</span></code> file types are
+Informant-specific XML formats. Together they form the persistent data model
+used by Informant’s recording and testing facilities.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.iskein        Recorded test vector
+.icomposition  Ordered composition of vectors
+.icollection   Collection of playables used as a test suite
+</pre></div>
+</div>
+<p>These files are deliberately stored as part of the Informant project rather
+than inside the Inform source tree. This keeps Informant’s testing state
+separate from the files belonging to Inform itself while allowing the tests to
+travel with the Informant project.</p>
+<p>The Test Manager provides the user-facing view of much of the information
+stored beneath <code class="docutils literal notranslate"><span class="pre">.informant</span></code>. Recordings made while playing the story become
+test vectors, vectors can participate in compositions, and playables can be
+organized into collections for repeated testing. The Explorer therefore shows
+the persistent files that make up the testing system while the Test Manager
+presents those same concepts in a form intended for everyday use.</p>
+<p>The distinction is useful when understanding an Informant project: the
+<code class="docutils literal notranslate"><span class="pre">.inform</span></code> directory contains the Inform project, the <code class="docutils literal notranslate"><span class="pre">.materials</span></code> directory
+contains resources associated with the story, and the <code class="docutils literal notranslate"><span class="pre">.informant</span></code> directory
+contains the additional state Informant uses to manage and test that project.
+Together they allow Informant to treat the source, resources, and behavioral
+tests as parts of the same development environment.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="compiling-and-playing">
+<h1>Compiling And Playing<a class="headerlink" href="#compiling-and-playing" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<section id="compile-story">
+<h2>Compile Story<a class="headerlink" href="#compile-story" title="Permalink to this heading"></a></h2>
+<p>When you compile a story Informant invokes the selected project toolchain and drives
+the Inform build pipeline.  A successful release build ultimately produces the
+playable story artifact, including <code class="docutils literal notranslate"><span class="pre">.gblorb</span></code> output where appropriate. Compiling
+a story for general play is not the same as compiling a story for test.  This is a
+minor but important distinction.  Compile for test has a different goal and enables
+the use of Inform “test X with” behaviors. To compile the current project, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Compile</span> <span class="n">Story</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_27.png" src="_images/Informant_27.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="compile-and-play">
+<h2>Compile And Play<a class="headerlink" href="#compile-and-play" title="Permalink to this heading"></a></h2>
+<p>Many times developers will want to compile and immediately play their interactive
+fiction work.  There is a dedicated command for this action as it is quite common.
+When you want to build the current source and immediately begin playing the
+result, just use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Compile</span> <span class="ow">and</span> <span class="n">Play</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_28.png" src="_images/Informant_28.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="play-story">
+<h2>Play Story<a class="headerlink" href="#play-story" title="Permalink to this heading"></a></h2>
+<p>Sometimes developers may want to play the current compiled story without recompiling
+from their source code.  This comes up when the story is in an intermediate or
+incomplete state. To run the current story without recompiling, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Play</span> <span class="n">Story</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_29.png" src="_images/Informant_29.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="build-errors">
+<h2>Build Errors<a class="headerlink" href="#build-errors" title="Permalink to this heading"></a></h2>
+<p>During development there will inevitably be build errors you will need to fix.
+As much as possible Informant works to parse these errors from the Inform compiler
+output and provide an easy to navigate enumeration of the errors that will
+take you directly to the line of source creating the error.  It is important
+to note that compiler errors remain compiler errors: Informant presents the build
+information so that the source can be corrected in Visual Studio Code and
+compiled again. It does not correct errors for the user.</p>
+<img alt="_images/Informant_30.png" src="_images/Informant_30.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="cleaning-a-project">
+<h2>Cleaning A Project<a class="headerlink" href="#cleaning-a-project" title="Permalink to this heading"></a></h2>
+<p>Cleaning a project simply deletes the Inform build folder.  To remove generated
+build material and prepare the project for a clean build just use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Clean</span> <span class="n">Project</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="inform-documentation-and-index">
+<h1>Inform Documentation And Index<a class="headerlink" href="#inform-documentation-and-index" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<section id="inform-documentation">
+<h2>Inform Documentation<a class="headerlink" href="#inform-documentation" title="Permalink to this heading"></a></h2>
+<p>The standard Inform IDE has extensive documentation integrated into its workflow.
+That same documentation has been integrated into Informant as much as possible.
+Due to some limitations of VSCode there are differences in its overall presentation.
+Use the following command to open the Inform documentation in the development
+environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Open</span> <span class="n">Documentation</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_31.png" src="_images/Informant_31.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="inform-index">
+<h2>Inform Index<a class="headerlink" href="#inform-index" title="Permalink to this heading"></a></h2>
+<p>The Inform Index is produced by Inform and provides detailed information about
+the compiled world, including material derived from the story source. To open the
+index generated for the current Inform project, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Open</span> <span class="n">Index</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_32.png" src="_images/Informant_32.png" />
+<img alt="_images/Informant_36.png" src="_images/Informant_36.png" />
+<img alt="_images/Informant_39.png" src="_images/Informant_39.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="inform-extensions">
+<h1>Inform Extensions<a class="headerlink" href="#inform-extensions" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<p>Inform extensions use the <code class="docutils literal notranslate"><span class="pre">.i7x</span></code> file format. To install an Inform extension for
+use by the Inform development environment you can use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Install</span> <span class="o">.</span><span class="n">i7x</span> <span class="n">Extension</span>
+</pre></div>
+</div>
+<p>NOTE: This command is for Inform language extensions and should not be confused
+with Visual Studio Code extensions.  Informant itself is a Visual Studio Code
+extension; an <code class="docutils literal notranslate"><span class="pre">.i7x</span></code> file extends Inform.</p>
+<img alt="_images/Informant_40.png" src="_images/Informant_40.png" />
+<section id="types-of-extensions">
+<h2>Types Of Extensions<a class="headerlink" href="#types-of-extensions" title="Permalink to this heading"></a></h2>
+<p>There are a wide variety of extensions available for Inform.  Conceptually it can
+be helpful to organize them into functional categories according to their primary
+purpose. Some extensions naturally overlap more than one area, so the categories
+should be treated as a browsing aid rather than as a strict classification of the
+Inform extension ecosystem. The broad categories are enumerated below and for
+detailed information about the extensions, please see the Inform7 Extension Guide
+located here: &gt;link&lt;</p>
+<ul class="simple">
+<li><p>Conversations, Characters &amp; NPCs</p></li>
+<li><p>General Utilities &amp; Miscellaneous</p></li>
+<li><p>Multimedia: Graphics &amp; Sound</p></li>
+<li><p>Objects, Actions &amp; Physical Interaction</p></li>
+<li><p>Parser, Commands &amp; Input</p></li>
+<li><p>Release, Metadata &amp; Licensing</p></li>
+<li><p>Rules, Relations &amp; Programming Utilities</p></li>
+<li><p>Saving, Files &amp; Persistence</p></li>
+<li><p>Story Structure, Choice &amp; Narrative</p></li>
+<li><p>Testing, Debugging &amp; Development</p></li>
+<li><p>Text, Prose &amp; Output</p></li>
+<li><p>Time, Events &amp; Turn Structure</p></li>
+<li><p>User Interface, Windows &amp; Typography</p></li>
+<li><p>World Model, Rooms &amp; Mapping</p></li>
+</ul>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="skeins-and-recorded-play">
+<h1>Skeins And Recorded Play<a class="headerlink" href="#skeins-and-recorded-play" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<p>Inform’s Skein provides a visual history of play. It records commands as a
+branching structure, allowing an author to preserve different routes through a
+story and return to earlier points in a play session. Informant repurposes that
+existing structure as the source material for a testing model. The important change
+is not that Informant replaces the Skein. It does not. The Inform Skein remains the
+author’s original branching record of play. Informant interprets that record, breaks
+its paths into reusable pieces, and uses those pieces to construct persistent test
+vectors, compositions, and test collections. This gives the same recorded play two
+useful views. In the Inform IDE, the Skein is primarily a branching visual history.
+In Informant, that history can be translated into reusable behavioral test material.</p>
+<section id="the-skein-in-the-inform-ide">
+<h2>The Skein in the Inform IDE<a class="headerlink" href="#the-skein-in-the-inform-ide" title="Permalink to this heading"></a></h2>
+<p>In the Inform IDE, a Skein can be read as a tree of commands. Play begins at a
+common starting point and branches whenever different commands are recorded
+from an earlier point. For example, a Skein may contain several routes beginning
+at <code class="docutils literal notranslate"><span class="pre">start</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">start</span>
+        <span class="o">/</span>     \
+      <span class="n">look</span>    <span class="n">take</span> <span class="nb">all</span>
+     <span class="o">/</span>   \        <span class="o">|</span>
+<span class="n">take</span> <span class="nb">all</span>  <span class="o">...</span>   <span class="nb">open</span> <span class="n">crate</span>
+   <span class="o">|</span>              <span class="o">|</span>
+   <span class="o">...</span>            <span class="o">...</span>
+</pre></div>
+</div>
+<p>The diagram is useful because it shows both common history and divergence.
+Several complete routes through the story may share the same beginning, while
+later commands distinguish one route from another.</p>
+<figure class="align-center" id="id5">
+<img alt="A branching Skein displayed in the Inform IDE." src="_images/Informant_44.png" />
+<figcaption>
+<p><span class="caption-text">A Skein in the Inform IDE. Commands are represented as nodes in a branching
+history of recorded play.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="informant-s-interpretation-of-the-skein">
+<h2>Informant’s Interpretation of the Skein<a class="headerlink" href="#informant-s-interpretation-of-the-skein" title="Permalink to this heading"></a></h2>
+<p>Informant treats the Skein as more than a picture of a play session. The
+branching structure contains information that can be transformed into testing
+material. Rather than storing every complete root-to-leaf route as an unrelated
+block of commands, Informant can decompose the Skein into reusable pieces. Shared or
+independently meaningful portions become test vectors, while complete playable
+routes can be represented by compositions that refer to those vectors.</p>
+<p>Conceptually, the transformation is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>              <span class="n">INFORM</span> <span class="n">SKEIN</span>
+                   <span class="o">|</span>
+                   <span class="n">v</span>
+        <span class="n">Analyze</span> <span class="n">branching</span> <span class="n">paths</span>
+                   <span class="o">|</span>
+       <span class="o">+-----------+-----------+</span>
+       <span class="o">|</span>                       <span class="o">|</span>
+       <span class="n">v</span>                       <span class="n">v</span>
+  <span class="n">Test</span> <span class="n">Vectors</span>            <span class="n">Compositions</span>
+<span class="n">reusable</span> <span class="n">pieces</span>         <span class="n">playable</span> <span class="n">routes</span>
+       <span class="o">|</span>                       <span class="o">|</span>
+       <span class="o">+-----------+-----------+</span>
+                   <span class="o">|</span>
+                   <span class="n">v</span>
+           <span class="n">Qualified</span> <span class="n">Tests</span>
+                   <span class="o">|</span>
+                   <span class="n">v</span>
+            <span class="n">Test</span> <span class="n">Collections</span>
+</pre></div>
+</div>
+<p>This is a change in representation, not a loss of the original idea. The
+branching play recorded by Inform is retained as behavioral structure, but
+Informant expresses that structure in forms that are easier to reuse, combine,
+organize, and execute as tests.</p>
+</section>
+<section id="test-vectors-iskein">
+<h2>Test Vectors: <code class="docutils literal notranslate"><span class="pre">.iskein</span></code><a class="headerlink" href="#test-vectors-iskein" title="Permalink to this heading"></a></h2>
+<p>The smallest persistent behavioral unit produced or used by Informant is a
+test vector, stored as an <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> file. A vector records a sequence of player
+commands and the corresponding observed story output. Informant distinguishes
+between vectors that can begin from a fresh story and vectors that continue from
+an established state. A simple decomposition can therefore look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                  <span class="n">original</span> <span class="n">branch</span>
+                       <span class="o">|</span>
+       <span class="o">+---------------+---------------+</span>
+       <span class="o">|</span>                               <span class="o">|</span>
+       <span class="n">v</span>                               <span class="n">v</span>
+ <span class="n">Starter</span> <span class="n">Vector</span>                 <span class="n">Continuation</span> <span class="n">Vector</span>
+<span class="n">begins</span> <span class="n">the</span> <span class="n">playable</span>             <span class="n">continues</span> <span class="kn">from</span> <span class="nn">an</span>
+    <span class="n">sequence</span>                    <span class="n">established</span> <span class="n">endpoint</span>
+</pre></div>
+</div>
+<p>When a Skein branches, this separation prevents Informant from having to copy
+the same recorded material into every complete route. The imported Skein can
+instead become a set of pieces that describe the useful portions of its graph.
+In the example import shown here, Informant decomposed the Skein into one
+starter vector and four continuation vectors.</p>
+<figure class="align-center" id="id6">
+<img alt="Informant Test Manager showing vectors imported from an Inform Skein." src="_images/Informant_41.png" />
+<figcaption>
+<p><span class="caption-text">The Test Vector Library after Skein import. The original branching history
+has been decomposed into starter and continuation vectors.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="endpoints-and-compatibility">
+<h2>Endpoints and Compatibility<a class="headerlink" href="#endpoints-and-compatibility" title="Permalink to this heading"></a></h2>
+<p>A continuation is meaningful only in the correct story state. Informant
+therefore records endpoint information for vectors and uses that information
+when reasoning about how recorded pieces may connect. This distinction is important.
+Two vectors may appear structurally compatible without being proven behaviorally
+interchangeable. Informant can identify structural candidates and endpoint relationships,
+but structural similarity is not itself proof that two pieces of recorded play have
+the same behavioral meaning. The endpoint model allows Informant to preserve an
+important property of the original Skein: branches occur in a particular story context.
+A continuation is not merely a loose list of commands; it belongs after a state from which
+that continuation makes sense.</p>
+</section>
+<section id="compositions-icomposition">
+<h2>Compositions: <code class="docutils literal notranslate"><span class="pre">.icomposition</span></code><a class="headerlink" href="#compositions-icomposition" title="Permalink to this heading"></a></h2>
+<p>Breaking the Skein into reusable vectors would not be sufficient by itself.
+The complete routes through the original branching structure also matter.
+Informant represents those routes as compositions, stored as
+<code class="docutils literal notranslate"><span class="pre">.icomposition</span></code> files. A composition is an ordered sequence of vectors that
+together describe a playable path.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="o">+------------------+</span>
+        <span class="o">|</span>  <span class="n">Starter</span> <span class="n">Vector</span>  <span class="o">|</span>
+        <span class="o">+--------+---------+</span>
+                 <span class="o">|</span>
+       <span class="o">+---------+---------+</span>
+       <span class="o">|</span>                   <span class="o">|</span>
+       <span class="n">v</span>                   <span class="n">v</span>
+<span class="n">Continuation</span> <span class="n">A</span>      <span class="n">Continuation</span> <span class="n">B</span>
+       <span class="o">|</span>                   <span class="o">|</span>
+       <span class="n">v</span>                   <span class="n">v</span>
+<span class="n">Composition</span> <span class="mi">1</span>       <span class="n">Composition</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>The vectors preserve reusable pieces. The compositions preserve meaningful
+ways of putting those pieces back together. During the example import, Informant
+created three compositions from the branching Skein in addition to the five vectors.
+Those compositions correspond to complete playable routes reconstructed from the
+imported material.</p>
+<figure class="align-center" id="id7">
+<img alt="Informant Test Manager showing compositions reconstructed from a Skein." src="_images/Informant_42.png" />
+<figcaption>
+<p><span class="caption-text">Imported compositions preserve complete playable routes through the
+decomposed Skein.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="from-recorded-play-to-executable-tests">
+<h2>From Recorded Play to Executable Tests<a class="headerlink" href="#from-recorded-play-to-executable-tests" title="Permalink to this heading"></a></h2>
+<p>A major consequence of the transformation is that suitable imported material
+can become executable regression tests. Informant’s Test view lists independent
+Playables with qualified start and end endpoints. A starter vector may qualify by
+itself. A composition may qualify when its ordered vectors form a complete playable
+route. Continuation vectors that depend on prior state do not become independent
+tests merely because they exist in the library. The relationship can be summarized as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Inform</span> <span class="n">Skein</span>
+         <span class="o">|</span>
+         <span class="n">v</span>
+  <span class="o">+--------------+</span>
+  <span class="o">|</span> <span class="n">Decomposition</span><span class="o">|</span>
+  <span class="o">+------+-------+</span>
+         <span class="o">|</span>
+   <span class="o">+-----+------+</span>
+   <span class="o">|</span>            <span class="o">|</span>
+   <span class="n">v</span>            <span class="n">v</span>
+<span class="o">.</span><span class="n">iskein</span>    <span class="o">.</span><span class="n">icomposition</span>
+<span class="n">vectors</span>       <span class="n">routes</span>
+   <span class="o">|</span>            <span class="o">|</span>
+   <span class="o">+-----+------+</span>
+         <span class="o">|</span>
+  <span class="n">qualified</span> <span class="n">Playables</span>
+         <span class="o">|</span>
+         <span class="n">v</span>
+   <span class="n">regression</span> <span class="n">tests</span>
+         <span class="o">|</span>
+   <span class="n">PASS</span> <span class="o">/</span> <span class="n">FAIL</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>In the example shown, the import produced four independently runnable tests:
+one starter vector and three compositions. Running all four against a fresh
+story produced four passing results.</p>
+<figure class="align-center" id="id8">
+<img alt="Informant Test Manager running tests derived from an imported Skein." src="_images/Informant_43.png" />
+<figcaption>
+<p><span class="caption-text">Imported Skein material used as executable tests. Each independent test
+begins with a fresh story and compares recorded behavior with current
+behavior.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This is the central repurposing of the Skein in Informant. A history that was
+originally useful for recording and revisiting play can also become a durable
+description of expected story behavior.</p>
+</section>
+<section id="collections-icollection">
+<h2>Collections: <code class="docutils literal notranslate"><span class="pre">.icollection</span></code><a class="headerlink" href="#collections-icollection" title="Permalink to this heading"></a></h2>
+<p>Vectors and compositions describe behavior. Collections provide organization.
+An Informant collection, stored as an <code class="docutils literal notranslate"><span class="pre">.icollection</span></code> file, groups Playables
+into a named test suite. Collections make it possible to organize the tests
+derived from recorded play according to the author’s needs rather than
+according to the geometry of the original Skein. The relationship among the
+three Informant formats is therefore:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                    <span class="o">.</span><span class="n">icollection</span>
+                   <span class="n">named</span> <span class="n">test</span> <span class="n">suite</span>
+                         <span class="o">|</span>
+           <span class="o">+-------------+-------------+</span>
+           <span class="o">|</span>                           <span class="o">|</span>
+           <span class="n">v</span>                           <span class="n">v</span>
+     <span class="o">.</span><span class="n">icomposition</span>                 <span class="o">.</span><span class="n">iskein</span>
+     <span class="n">ordered</span> <span class="n">route</span>              <span class="n">complete</span> <span class="n">vector</span>
+           <span class="o">|</span>
+   <span class="o">+-------+-------+</span>
+   <span class="o">|</span>               <span class="o">|</span>
+   <span class="n">v</span>               <span class="n">v</span>
+<span class="o">.</span><span class="n">iskein</span>         <span class="o">.</span><span class="n">iskein</span>
+<span class="n">vector</span>          <span class="n">vector</span>
+</pre></div>
+</div>
+<p>An <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> is recorded behavioral material. An <code class="docutils literal notranslate"><span class="pre">.icomposition</span></code> combines
+vectors into an ordered playable route. An <code class="docutils literal notranslate"><span class="pre">.icollection</span></code> organizes
+Playables into a test suite. The collection is not another branch of the original
+Inform Skein. It is a higher-level Informant organization built from the testing
+material obtained from recorded play.</p>
+</section>
+<section id="two-views-of-the-same-recorded-play">
+<h2>Two Views of the Same Recorded Play<a class="headerlink" href="#two-views-of-the-same-recorded-play" title="Permalink to this heading"></a></h2>
+<p>The distinction between Inform and Informant can be summarized as follows:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 34.0%" />
+<col style="width: 38.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>Inform IDE</p></th>
+<th class="head"><p>Informant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Recorded play</p></td>
+<td><p>Displayed as a branching Skein</p></td>
+<td><p>Interpreted as behavioral test material</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shared path</p></td>
+<td><p>Visible as common nodes in the tree</p></td>
+<td><p>Can be represented by reusable vectors</p></td>
+</tr>
+<tr class="row-even"><td><p>Branch</p></td>
+<td><p>A route through Skein nodes</p></td>
+<td><p>Can be reconstructed as a composition</p></td>
+</tr>
+<tr class="row-odd"><td><p>Continuation</p></td>
+<td><p>Commands following an earlier Skein state</p></td>
+<td><p>A continuation vector tied to an endpoint</p></td>
+</tr>
+<tr class="row-even"><td><p>Complete route</p></td>
+<td><p>A path through the Skein</p></td>
+<td><p>A qualified Playable that can become a test</p></td>
+</tr>
+<tr class="row-odd"><td><p>Organization</p></td>
+<td><p>Primarily the Skein’s branching geometry</p></td>
+<td><p>Named collections of Playables</p></td>
+</tr>
+<tr class="row-even"><td><p>Verification</p></td>
+<td><p>Recorded history can be replayed</p></td>
+<td><p>Recorded behavior can be executed and compared as a regression test</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-translation-at-a-glance">
+<h2>The Translation at a Glance<a class="headerlink" href="#the-translation-at-a-glance" title="Permalink to this heading"></a></h2>
+<p>The complete conceptual progression is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFORM</span> <span class="n">IDE</span>
+<span class="o">==========</span>
+<span class="n">Skein</span><span class="o">.</span><span class="n">skein</span>
+
+<span class="n">branching</span> <span class="n">recorded</span> <span class="n">play</span>
+        <span class="o">|</span>
+        <span class="o">|</span>  <span class="kn">import</span> <span class="nn">and</span> <span class="n">analyze</span>
+        <span class="n">v</span>
+
+<span class="n">INFORMANT</span>
+<span class="o">=========</span>
+
+<span class="o">.</span><span class="n">iskein</span>
+<span class="n">test</span> <span class="n">vectors</span>
+<span class="n">reusable</span> <span class="n">recorded</span> <span class="n">behavior</span>
+        <span class="o">|</span>
+        <span class="o">+-------------------+</span>
+        <span class="o">|</span>                   <span class="o">|</span>
+        <span class="n">v</span>                   <span class="n">v</span>
+<span class="n">starter</span> <span class="n">vectors</span>      <span class="n">continuation</span> <span class="n">vectors</span>
+        \                   <span class="o">/</span>
+         \                 <span class="o">/</span>
+          <span class="o">+-------+-------+</span>
+                  <span class="o">|</span>
+                  <span class="n">v</span>
+            <span class="o">.</span><span class="n">icomposition</span>
+         <span class="n">ordered</span> <span class="n">playable</span> <span class="n">route</span>
+                  <span class="o">|</span>
+                  <span class="n">v</span>
+           <span class="n">qualified</span> <span class="n">Playable</span>
+                  <span class="o">|</span>
+                  <span class="n">v</span>
+            <span class="n">executable</span> <span class="n">test</span>
+                  <span class="o">|</span>
+                  <span class="n">v</span>
+             <span class="o">.</span><span class="n">icollection</span>
+            <span class="n">organized</span> <span class="n">suite</span>
+</pre></div>
+</div>
+<p>This model lets Informant reuse work authors may already have performed while
+developing and playing their stories. The Skein remains recognizable as the
+source of that work, while Informant gives its branches a second life as
+persistent, composable, executable regression material.</p>
+</section>
+<section id="why-repurpose-the-skein">
+<h2>Why Repurpose the Skein?<a class="headerlink" href="#why-repurpose-the-skein" title="Permalink to this heading"></a></h2>
+<p>Interactive fiction testing has an unusual advantage: ordinary play naturally
+produces sequences of commands and observable responses. The Inform Skein has
+long provided a way to preserve that play as a branching history. Informant
+builds on that idea by treating recorded play as potential test evidence.
+The result is a bridge between exploration and verification. An author can
+record behavior while developing a story, import that behavior into Informant,
+retain reusable portions as vectors, preserve complete routes as compositions,
+organize useful Playables into collections, and execute qualified Playables as
+regression tests. In that sense, Informant does not discard the Skein model.
+It changes the question asked of it. The Inform IDE asks, in effect,
+“How did play get here, and what other branches were recorded?”</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="record-skein">
+<h2>Record Skein<a class="headerlink" href="#record-skein" title="Permalink to this heading"></a></h2>
+<p>In the standard Inform IDE, a skein is generally recorded when you play your
+work using the player that is built into the Inform IDE.  This generates a skein
+representative of the paths you have traversed during your game play.  The skein
+is cumulative, allowing you to visualize various paths you have exercised during
+your development work.  There are, however, some downsides to this approach.  The
+most apparent is the ongoing skein pruning or trimming that must be performed to
+ensure that the skein does not become too large or even problematic for the
+normal functioning of the IDE.  Despite these limitations the skein is very helpful
+in the creation of IF works.  Informant takes the concept of the skein and adapts
+its behavior to fit a more test driven methodology.  First and foremost, within the
+context of Informant, a skein only represents a single path of play through your
+game.  That path starts at the beginning of the IF work and ends wherever you stop
+recording commands.  A skein must be explicitly recorded.  Skeins are not automatically
+recorded during game play.  Your recorded skein acts as a temporary command sequence
+that you can play back over and over as needed.  The concept of a branching skein does
+not exist in informant and instead, branching, alternative paths, etc… are the domain
+of several new concepts: iskein, icomposition, and icollection which will be described
+in more detail elsewhere in this documentation.  For now, to record a skein you can use
+the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Record</span> <span class="n">Skein</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_56.png" src="_images/Informant_56.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="play-skein">
+<h2>Play Skein<a class="headerlink" href="#play-skein" title="Permalink to this heading"></a></h2>
+<p>Skeins are especially useful for repeatedly reaching a particular part of a story while
+developing it. Use the following command to replay a previously recorded skein:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Play</span> <span class="n">Skein</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_57.png" src="_images/Informant_57.png" />
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<p>Interactive fiction presents a different testing problem from conventional
+software. A command is not evaluated in isolation. Its behavior depends upon
+the accumulated state of the story when the command is entered. The player’s
+location, inventory, object properties, scenes, counters, rules that have
+already fired, and other story state may all affect what happens next.
+Informant therefore does not attempt to reduce an interactive-fiction world
+to isolated deterministic commands. Instead, it records self-contained paths
+through the story, preserves useful portions of those paths as test vectors,
+and reconstructs longer paths when later behavior depends upon state created
+earlier in play.</p>
+<p>The central principle is:</p>
+<blockquote>
+<div><p><strong>Informant treats recorded play as behavioral evidence.</strong></p>
+</div></blockquote>
+<p>That evidence begins with recording a Skein. A useful recorded path can become
+a starter vector. A starter can then be replayed to establish the state from
+which continuation vectors are recorded. Compositions join a starter with one
+or more compatible continuations. Endpoint qualification determines which
+resulting Playables can make meaningful regression assertions, while
+collections organize those Playables into testing strategies.</p>
+<img alt="_images/Informant_55.png" src="_images/Informant_55.png" />
+<section id="compile-test-story">
+<h2>Compile Test Story<a class="headerlink" href="#compile-test-story" title="Permalink to this heading"></a></h2>
+<p>To do anything using the test manager you MUST build the project for testing.
+Building for testing also enables the use of “test X with” directives as well.
+To build the project for testing use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Compile</span> <span class="n">Test</span> <span class="n">Story</span>
+</pre></div>
+</div>
+</section>
+<section id="from-recorded-skein-to-starter-vector">
+<h2>From Recorded Skein to Starter Vector<a class="headerlink" href="#from-recorded-skein-to-starter-vector" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Record</span> <span class="pre">Skein</span></code> is the beginning of Informant’s native recording workflow. It
+generates the source material from which a starter vector can be created. The
+author plays the story from its beginning and records a sequence of gameplay.
+At this stage the recording is a candidate: the author can inspect the
+recorded play and decide whether it represents a useful self-contained
+behavioral path.</p>
+<p>Conceptually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BEGINNING</span> <span class="n">OF</span> <span class="n">STORY</span>
+        <span class="o">|</span>
+        <span class="n">v</span>
+   <span class="n">Record</span> <span class="n">Skein</span>
+        <span class="o">|</span>
+        <span class="n">v</span>
+  <span class="n">recorded</span> <span class="n">gameplay</span>
+        <span class="o">|</span>
+        <span class="n">v</span>
+   <span class="n">review</span> <span class="n">recording</span>
+        <span class="o">|</span>
+        <span class="n">v</span>
+<span class="n">Accept</span> <span class="n">Starter</span> <span class="n">Vector</span>
+        <span class="o">|</span>
+        <span class="n">v</span>
+     <span class="o">.</span><span class="n">iskein</span>
+</pre></div>
+</div>
+<p>When the author accepts the recording as a starter vector, Informant saves it
+as an <code class="docutils literal notranslate"><span class="pre">.iskein</span></code>. This distinction is important: recording produces the
+source material; accepting the recording promotes that material into a
+reusable Informant test vector.</p>
+<p>A starter vector is self-contained gameplay beginning at the beginning of the
+story. Because its starting condition can always be recreated by starting a
+fresh story, a starter vector can be played independently at any time.</p>
+</section>
+<section id="starter-vectors-establish-reproducible-state">
+<h2>Starter Vectors Establish Reproducible State<a class="headerlink" href="#starter-vectors-establish-reproducible-state" title="Permalink to this heading"></a></h2>
+<p>A starter vector has a special role in the testing model because it establishes
+its own context:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">FRESH</span> <span class="n">STORY</span>
+      <span class="o">|</span>
+      <span class="n">v</span>
+<span class="n">Starter</span> <span class="n">Vector</span>
+      <span class="o">|</span>
+      <span class="n">v</span>
+<span class="n">resulting</span> <span class="n">state</span>
+</pre></div>
+</div>
+<p>The commands inside the vector are not interpreted as isolated operations.
+Together they represent a traversal from a reproducible origin to an observed
+story state. This gives Informant a reliable way to recreate the circumstances
+under which later gameplay occurred.</p>
+<p>A starter vector is therefore both useful gameplay in its own right and a
+foundation from which additional recorded behavior can be developed.</p>
+</section>
+<section id="recording-continuation-vectors">
+<h2>Recording Continuation Vectors<a class="headerlink" href="#recording-continuation-vectors" title="Permalink to this heading"></a></h2>
+<p>Once a starter vector exists, Informant can use it to create continuation
+vectors. A continuation does not begin at the beginning of the game. Instead,
+the author first plays back an existing starter vector. That playback recreates
+the story state reached by the starter. Recording then continues from that
+state.</p>
+<p>The workflow is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FRESH</span> <span class="n">STORY</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">play</span> <span class="n">Starter</span> <span class="n">A</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">state</span> <span class="n">established</span> <span class="n">by</span> <span class="n">A</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">record</span> <span class="n">continuation</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">review</span> <span class="n">continuation</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">Accept</span> <span class="n">Continuation</span> <span class="n">Vector</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">continuation</span> <span class="o">.</span><span class="n">iskein</span>
+</pre></div>
+</div>
+<p>The Test Manager exposes this workflow directly through its Starter Recording
+and Continuation Recording controls. A starter recording can be refreshed and
+accepted as a Starter Vector. After the required preceding state has been
+established, a continuation recording can be accepted as a Continuation
+Vector.</p>
+<p>This makes continuation vectors deliberately different from starter vectors.
+A continuation contains useful recorded gameplay, but it is not independently
+playable because it does not establish its own starting state. Its commands
+assume that earlier gameplay has already placed the story in the required
+condition.</p>
+<img alt="_images/Informant_41.png" src="_images/Informant_41.png" />
+</section>
+<section id="starter-and-continuation-vectors">
+<h2>Starter and Continuation Vectors<a class="headerlink" href="#starter-and-continuation-vectors" title="Permalink to this heading"></a></h2>
+<p>Both starter and continuation vectors are stored as <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> files, but
+they have different roles.</p>
+<p>A starter vector is independently playable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beginning</span> <span class="n">of</span> <span class="n">game</span>
+       <span class="o">|</span>
+       <span class="n">v</span>
+   <span class="n">Starter</span> <span class="n">A</span>
+       <span class="o">|</span>
+       <span class="n">v</span>
+    <span class="n">endpoint</span>
+</pre></div>
+</div>
+<p>A continuation vector depends upon preceding gameplay:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">required</span> <span class="n">prior</span> <span class="n">state</span>
+        <span class="o">|</span>
+        <span class="n">v</span>
+ <span class="n">Continuation</span> <span class="n">B</span>
+        <span class="o">|</span>
+        <span class="n">v</span>
+     <span class="n">endpoint</span>
+</pre></div>
+</div>
+<p>The distinction can be summarized as:</p>
+<ul class="simple">
+<li><p>A starter vector begins at the beginning of the game.</p></li>
+<li><p>A starter vector is self-contained and can be played independently.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Record</span> <span class="pre">Skein</span></code> provides the source material from which a starter vector is
+accepted.</p></li>
+<li><p>A continuation vector begins from story state established by preceding
+gameplay.</p></li>
+<li><p>A continuation vector is created by playing the required starter path and
+recording additional gameplay from the resulting state.</p></li>
+<li><p>A continuation vector cannot be played independently.</p></li>
+</ul>
+<p>This structure allows Informant to preserve useful sections of gameplay
+without duplicating the entire path from the beginning of the story every time
+a new behavioral segment is recorded.</p>
+</section>
+<section id="vectors-as-recorded-state-transitions">
+<h2>Vectors as Recorded State Transitions<a class="headerlink" href="#vectors-as-recorded-state-transitions" title="Permalink to this heading"></a></h2>
+<p>At a high level, an <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> vector represents a transition between
+observed conditions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">observed</span> <span class="n">starting</span> <span class="n">condition</span>
+           <span class="o">|</span>
+           <span class="n">v</span>
+    <span class="n">recorded</span> <span class="n">commands</span>
+           <span class="o">|</span>
+           <span class="n">v</span>
+<span class="n">observed</span> <span class="n">resulting</span> <span class="n">condition</span>
+</pre></div>
+</div>
+<p>For a starter vector, the starting condition is independently reproducible
+because the vector begins with a fresh story. For a continuation vector, the
+starting condition must first be established by preceding vectors.</p>
+<p>Informant does not need to claim complete knowledge of every internal value in
+the Inform virtual machine. Instead, it works with observations at useful
+boundaries. A recorded endpoint represents a practical behavioral assertion:</p>
+<blockquote>
+<div><p><strong>After following this recorded path from the required starting condition,
+this is what was observed.</strong></p>
+</div></blockquote>
+<p>The important question is not whether every internal variable has exactly the
+same value. The useful regression question is whether a reproducible traversal
+still produces the behavior the author recorded and expects.</p>
+</section>
+<section id="compositions-reconstruct-complete-playable-paths">
+<h2>Compositions Reconstruct Complete Playable Paths<a class="headerlink" href="#compositions-reconstruct-complete-playable-paths" title="Permalink to this heading"></a></h2>
+<p>An <code class="docutils literal notranslate"><span class="pre">.icomposition</span></code> combines vectors into a complete Playable. Every
+composition must begin with a starter vector. The starter establishes the
+reproducible path from the beginning of the game. One or more compatible
+continuation vectors can then extend that path.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Starter</span> <span class="n">A</span>
+   <span class="o">|</span>
+   <span class="n">v</span>
+<span class="n">Continuation</span> <span class="n">B</span>
+   <span class="o">|</span>
+   <span class="n">v</span>
+<span class="n">Continuation</span> <span class="n">C</span>
+</pre></div>
+</div>
+<p>The complete composition is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FRESH</span> <span class="n">STORY</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+  <span class="n">Starter</span> <span class="n">A</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">Continuation</span> <span class="n">B</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">Continuation</span> <span class="n">C</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+   <span class="n">endpoint</span>
+</pre></div>
+</div>
+<p>Neither Continuation B nor Continuation C needs to be independently playable.
+The composition supplies the context they require by placing them after the
+starter and preceding continuations that establish their starting states.</p>
+<p>A composition is therefore more than an arbitrary list of vectors. Its order
+describes a valid path through accumulated story state. Informant assists the
+author during composition creation by color coding good continuation matches,
+helping identify continuation vectors whose recorded boundaries are suitable
+candidates for the path being assembled.</p>
+<p>Structural compatibility is useful guidance, but the purpose of the completed
+composition is behavioral: to reconstruct a meaningful sequence of gameplay
+from a reproducible beginning to a useful endpoint.</p>
+</section>
+<section id="why-compositions-matter">
+<h2>Why Compositions Matter<a class="headerlink" href="#why-compositions-matter" title="Permalink to this heading"></a></h2>
+<p>Without compositions, every independently runnable recording would have to
+repeat all gameplay from the beginning of the story. That would discard the
+reuse made possible by continuation vectors.</p>
+<p>Instead, Informant can factor recorded play into reusable pieces:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                     <span class="o">+--&gt;</span> <span class="n">Continuation</span> <span class="n">B</span>
+                     <span class="o">|</span>
+<span class="n">Starter</span> <span class="n">A</span> <span class="o">-----------+--&gt;</span> <span class="n">Continuation</span> <span class="n">C</span>
+                     <span class="o">|</span>
+                     <span class="o">+--&gt;</span> <span class="n">Continuation</span> <span class="n">D</span>
+</pre></div>
+</div>
+<p>Those pieces can then participate in complete compositions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Composition</span> <span class="mi">1</span> <span class="o">=</span> <span class="n">Starter</span> <span class="n">A</span> <span class="o">+</span> <span class="n">Continuation</span> <span class="n">B</span>
+<span class="n">Composition</span> <span class="mi">2</span> <span class="o">=</span> <span class="n">Starter</span> <span class="n">A</span> <span class="o">+</span> <span class="n">Continuation</span> <span class="n">C</span>
+<span class="n">Composition</span> <span class="mi">3</span> <span class="o">=</span> <span class="n">Starter</span> <span class="n">A</span> <span class="o">+</span> <span class="n">Continuation</span> <span class="n">D</span>
+</pre></div>
+</div>
+<p>Longer compositions can continue through multiple compatible continuation
+vectors. The important invariant remains the same: the first vector is always
+a starter, and every continuation depends upon the state established by the
+path before it.</p>
+<img alt="_images/Informant_42.png" src="_images/Informant_42.png" />
+</section>
+<section id="qualified-playables">
+<h2>Qualified Playables<a class="headerlink" href="#qualified-playables" title="Permalink to this heading"></a></h2>
+<p>The Test tab describes its candidates as:</p>
+<blockquote>
+<div><p><strong>Independent Playables with qualified start and end endpoints.</strong></p>
+</div></blockquote>
+<p>This is why the Test tab does not simply display every <code class="docutils literal notranslate"><span class="pre">.iskein</span></code>. A starter
+vector can be an independent Playable because it begins at the beginning of
+the story. A continuation vector cannot appear as an independent test merely
+because it contains recorded commands; it requires preceding state. A
+composition can become an independent Playable because its required starter
+and continuations together reconstruct the complete path.</p>
+<p>Conceptually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recorded</span> <span class="n">Skein</span>
+     <span class="o">|</span>
+     <span class="n">v</span>
+<span class="n">Starter</span> <span class="n">Vector</span> <span class="o">--------------------+</span>
+     <span class="o">|</span>                              <span class="o">|</span>
+     <span class="o">|</span>                              <span class="n">v</span>
+     <span class="o">|</span>                      <span class="n">independent</span> <span class="n">Playable</span>
+     <span class="o">|</span>
+     <span class="o">+--&gt;</span> <span class="n">Continuation</span> <span class="n">Vector</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                 <span class="o">|</span>
+                 <span class="n">v</span>
+            <span class="n">Composition</span>
+                 <span class="o">|</span>
+                 <span class="n">v</span>
+         <span class="n">independent</span> <span class="n">Playable</span>
+                 <span class="o">|</span>
+                 <span class="n">v</span>
+               <span class="n">TEST</span>
+</pre></div>
+</div>
+<p>Endpoint qualification adds another layer to this decision. Informant records
+information about what is known at the boundaries of the Playable. The
+<code class="docutils literal notranslate"><span class="pre">Step</span></code>, <code class="docutils literal notranslate"><span class="pre">End</span></code>, and <code class="docutils literal notranslate"><span class="pre">None</span></code> classifications shown by the Test Manager make
+that endpoint information visible. Their precise rules are described with the
+endpoint model, but their methodological purpose is important here: endpoint
+qualification determines what Informant is entitled to assert about the place
+where a recorded traversal begins or ends.</p>
+</section>
+<section id="testing-observations-rather-than-implementations">
+<h2>Testing Observations Rather Than Implementations<a class="headerlink" href="#testing-observations-rather-than-implementations" title="Permalink to this heading"></a></h2>
+<p>Informant’s regression model is based on observable behavior. A story may
+contain hundreds or thousands of internal values involved in producing a
+response, but a behavioral regression test need not depend upon those
+implementation details.</p>
+<p>Conceptually, Informant asks whether this relationship still holds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reproducible</span> <span class="n">starting</span> <span class="n">condition</span>
+            <span class="o">|</span>
+            <span class="n">v</span>
+     <span class="n">recorded</span> <span class="n">traversal</span>
+            <span class="o">|</span>
+            <span class="n">v</span>
+   <span class="n">expected</span> <span class="n">observation</span>
+</pre></div>
+</div>
+<p>For a starter test, the reproducible condition is the beginning of a fresh
+story. For a composition, the starter and its continuations collectively
+reconstruct the recorded traversal from that same reproducible origin.</p>
+<p>This is behavioral regression testing. It tests the observable consequences of
+recorded gameplay rather than attempting to prove that every internal detail
+of the story is unchanged.</p>
+</section>
+<section id="nondeterminism-and-the-limits-of-an-assertion">
+<h2>Nondeterminism and the Limits of an Assertion<a class="headerlink" href="#nondeterminism-and-the-limits-of-an-assertion" title="Permalink to this heading"></a></h2>
+<p>Interactive fiction can contain intentionally variable behavior. Random
+events, alternative descriptions, state-dependent text, and other sources of
+variation can make some observations inappropriate for strict literal
+comparison. Informant does not need to deny this nondeterminism in order to
+provide useful regression testing.</p>
+<p>Recorded interactive behavior can contain regions with different degrees of
+reproducibility:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">INTERACTIVE</span> <span class="n">STORY</span>
+                <span class="o">|</span>
+      <span class="o">+---------+---------+</span>
+      <span class="o">|</span>                   <span class="o">|</span>
+      <span class="n">v</span>                   <span class="n">v</span>
+<span class="n">stable</span> <span class="n">observable</span>    <span class="n">variable</span> <span class="n">behavior</span>
+    <span class="n">behavior</span>
+      <span class="o">|</span>                   <span class="o">|</span>
+      <span class="n">v</span>                   <span class="n">v</span>
+<span class="n">strong</span> <span class="n">regression</span>     <span class="n">weaker</span> <span class="ow">or</span>
+   <span class="n">checkpoint</span>         <span class="n">inappropriate</span>
+                      <span class="n">literal</span> <span class="n">checkpoint</span>
+</pre></div>
+</div>
+<p>A stable observation can provide strong regression evidence. An intentionally
+variable observation may provide weaker evidence or may be unsuitable for a
+strict checkpoint. Nondeterminism therefore defines the limits of an
+assertion; it does not invalidate the overall testing model.</p>
+<p>The author remains an important part of test design. <code class="docutils literal notranslate"><span class="pre">Record</span> <span class="pre">Skein</span></code> captures
+actual play, but the author decides whether the resulting recording is useful
+enough to accept as a starter vector. The author can then deliberately extend
+that known path with continuation recordings and assemble those pieces into
+compositions representing meaningful scenarios.</p>
+</section>
+<section id="the-recording-and-testing-methodology">
+<h2>The Recording and Testing Methodology<a class="headerlink" href="#the-recording-and-testing-methodology" title="Permalink to this heading"></a></h2>
+<p>The complete native workflow can be summarized as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PLAY</span> <span class="n">FROM</span> <span class="n">THE</span> <span class="n">BEGINNING</span>
+          <span class="o">|</span>
+          <span class="n">v</span>
+     <span class="n">Record</span> <span class="n">Skein</span>
+          <span class="o">|</span>
+          <span class="n">v</span>
+  <span class="n">candidate</span> <span class="n">recording</span>
+          <span class="o">|</span>
+          <span class="n">v</span>
+ <span class="n">Accept</span> <span class="n">Starter</span> <span class="n">Vector</span>
+          <span class="o">|</span>
+          <span class="n">v</span>
+   <span class="n">starter</span> <span class="o">.</span><span class="n">iskein</span>
+          <span class="o">|</span>
+          <span class="o">+----------------------+</span>
+          <span class="o">|</span>                      <span class="o">|</span>
+          <span class="n">v</span>                      <span class="n">v</span>
+  <span class="n">independent</span> <span class="n">Playable</span>     <span class="n">play</span> <span class="n">starter</span> <span class="n">back</span>
+                                 <span class="o">|</span>
+                                 <span class="n">v</span>
+                          <span class="n">established</span> <span class="n">state</span>
+                                 <span class="o">|</span>
+                                 <span class="n">v</span>
+                       <span class="n">record</span> <span class="n">continuation</span>
+                                 <span class="o">|</span>
+                                 <span class="n">v</span>
+                    <span class="n">Accept</span> <span class="n">Continuation</span> <span class="n">Vector</span>
+                                 <span class="o">|</span>
+                                 <span class="n">v</span>
+                       <span class="n">continuation</span> <span class="o">.</span><span class="n">iskein</span>
+                                 <span class="o">|</span>
+                                 <span class="n">v</span>
+                          <span class="o">.</span><span class="n">icomposition</span>
+                     <span class="n">starter</span> <span class="o">+</span> <span class="n">continuation</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                                 <span class="o">|</span>
+                                 <span class="n">v</span>
+                      <span class="n">qualified</span> <span class="n">Playable</span>
+                                 <span class="o">|</span>
+                                 <span class="n">v</span>
+                          <span class="n">regression</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>This workflow is intentionally incremental. A useful path through the story
+becomes a starter. The starter becomes a reproducible foundation for recording
+later behavior. Continuations preserve those later segments without requiring
+the entire earlier path to be duplicated. Compositions restore the complete
+context when those segments need to be executed as an independent Playable.</p>
+</section>
+<section id="collections-and-testing-intent">
+<h2>Collections and Testing Intent<a class="headerlink" href="#collections-and-testing-intent" title="Permalink to this heading"></a></h2>
+<p>An <code class="docutils literal notranslate"><span class="pre">.icollection</span></code> operates above the recording and composition mechanism. A
+collection does not make a continuation independently playable and does not
+supply missing behavioral context. Instead, it organizes meaningful Playables
+according to the author’s testing intent.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COLLECTION</span><span class="p">:</span> <span class="n">Peach</span> <span class="n">Crate</span>
+
+    <span class="nb">open</span><span class="o">-</span><span class="n">crate</span><span class="o">-</span><span class="n">happy</span><span class="o">-</span><span class="n">path</span>
+    <span class="n">take</span><span class="o">-</span><span class="n">ripe</span><span class="o">-</span><span class="n">peach</span>
+    <span class="n">store</span><span class="o">-</span><span class="n">leaflet</span>
+    <span class="n">close</span><span class="o">-</span><span class="n">crate</span>
+</pre></div>
+</div>
+<p>Another collection might select a broader group of Playables for release
+verification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COLLECTION</span><span class="p">:</span> <span class="n">Release</span> <span class="n">Smoke</span> <span class="n">Tests</span>
+
+    <span class="n">startup</span>
+    <span class="n">inventory</span>
+    <span class="n">navigation</span>
+    <span class="n">peach</span><span class="o">-</span><span class="n">crate</span>
+    <span class="n">ending</span>
+</pre></div>
+</div>
+<p>The three Informant file abstractions therefore serve distinct purposes:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">.iskein</span></code></dt><dd><p>Recorded behavioral material. An <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> may be a self-contained
+starter vector or a continuation vector whose starting state depends upon
+preceding gameplay.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.icomposition</span></code></dt><dd><p>A complete playable path beginning with a starter vector and followed by
+one or more compatible continuation vectors.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.icollection</span></code></dt><dd><p>Organization of Playables according to testing intent and strategy.</p>
+</dd>
+</dl>
+</section>
+<section id="independent-test-execution">
+<h2>Independent Test Execution<a class="headerlink" href="#independent-test-execution" title="Permalink to this heading"></a></h2>
+<p>Each independent test begins with a fresh story. This is a direct consequence
+of the starter-vector model. Whether the selected Playable is a starter by
+itself or a composition containing a starter and continuations, its complete
+execution begins from the beginning of the game.</p>
+<p>Thus independent tests behave conceptually as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fresh</span> <span class="n">story</span> <span class="o">-&gt;</span> <span class="n">Starter</span> <span class="n">A</span> <span class="o">--------------------------&gt;</span> <span class="n">PASS</span>
+
+<span class="n">fresh</span> <span class="n">story</span> <span class="o">-&gt;</span> <span class="n">Starter</span> <span class="n">B</span> <span class="o">-&gt;</span> <span class="n">Continuation</span> <span class="n">C</span> <span class="o">-------&gt;</span> <span class="n">PASS</span>
+
+<span class="n">fresh</span> <span class="n">story</span> <span class="o">-&gt;</span> <span class="n">Starter</span> <span class="n">D</span> <span class="o">-&gt;</span> <span class="n">Continuation</span> <span class="n">E</span>
+                         <span class="o">-&gt;</span> <span class="n">Continuation</span> <span class="n">F</span> <span class="o">--------&gt;</span> <span class="n">PASS</span>
+</pre></div>
+</div>
+<p>One test therefore does not silently inherit the state left behind by another.
+This is intentionally different from executing every test as one continuous
+story session, where a side effect introduced by an earlier test could alter
+the result of a later test.</p>
+</section>
+<section id="what-a-passing-test-means">
+<h2>What a Passing Test Means<a class="headerlink" href="#what-a-passing-test-means" title="Permalink to this heading"></a></h2>
+<p>A successful Informant test run is regression evidence, not proof that the
+entire story is correct. When the Test Manager reports that a set of tests
+passed, the useful interpretation is:</p>
+<blockquote>
+<div><p><strong>The independently runnable Playables began from reproducible starting
+conditions, traversed their recorded command sequences through the required
+starter and continuation vectors, and reached observations consistent with
+their recorded expectations.</strong></p>
+</div></blockquote>
+<p>This is deliberately narrower and more defensible than claiming that the
+entire story has been proven correct.</p>
+</section>
+<section id="methodology-summary">
+<h2>Methodology Summary<a class="headerlink" href="#methodology-summary" title="Permalink to this heading"></a></h2>
+<p>Informant builds regression tests from recorded gameplay rather than treating
+individual commands as isolated test cases. <code class="docutils literal notranslate"><span class="pre">Record</span> <span class="pre">Skein</span></code> captures a
+candidate self-contained path beginning at the start of the game. Accepting
+that recording creates a starter <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> that can be played independently.
+Playing a starter recreates a known story state from which additional
+continuation <code class="docutils literal notranslate"><span class="pre">.iskein</span></code> vectors can be recorded. Continuations are reusable
+segments but cannot be played independently because they do not begin at the
+start of the game.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">.icomposition</span></code> restores the complete context by beginning with a starter
+vector and extending it with one or more compatible continuation vectors.
+Informant assists composition creation by identifying and color coding good
+continuation matches. Endpoint qualification further describes what is known
+at the boundaries of the resulting Playable. <code class="docutils literal notranslate"><span class="pre">.icollection</span></code> files then
+organize meaningful Playables into broader testing strategies.</p>
+<p>The result is a testing methodology suited to stateful interactive fiction:</p>
+<blockquote>
+<div><p><strong>Record a reproducible path, preserve reusable transitions, reconstruct
+the context they require, and make regression assertions only where the
+recorded boundaries justify them.</strong></p>
+</div></blockquote>
+</section>
+<section id="choosing-a-verification-type">
+<h2>Choosing A Verification Type<a class="headerlink" href="#choosing-a-verification-type" title="Permalink to this heading"></a></h2>
+<p>Informant separates the construction of a Playable from the way that Playable
+is verified. Starter and continuation vectors describe how a path through the
+story is constructed. The verification style belongs to the completed,
+independently playable test.</p>
+<p>Only two kinds of Playable can have a verification style:</p>
+<ul class="simple">
+<li><p>a Starter Vector, because it begins at the beginning of the game and can be
+played independently; or</p></li>
+<li><p>a Composition, because it begins with a Starter Vector and reconstructs a
+complete path using any required Continuation Vectors.</p></li>
+</ul>
+<p>Continuation Vectors do not have independent <code class="docutils literal notranslate"><span class="pre">Step</span></code>, <code class="docutils literal notranslate"><span class="pre">End</span></code>, or <code class="docutils literal notranslate"><span class="pre">None</span></code>
+verification styles. They are reusable structural components whose required
+starting state is supplied by the Starter Vector and any preceding
+Continuation Vectors in a Composition.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Starter</span> <span class="n">A</span> <span class="p">[</span><span class="n">Step</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Composition</span> <span class="n">B</span> <span class="p">[</span><span class="n">End</span><span class="p">]</span>
+    <span class="o">|</span>
+    <span class="o">+--</span> <span class="n">Starter</span> <span class="n">A</span>
+    <span class="o">+--</span> <span class="n">Continuation</span> <span class="mi">1</span>
+    <span class="o">+--</span> <span class="n">Continuation</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>are independently playable tests with verification styles. The Continuation
+Vectors inside Composition B do not carry separate verification styles.</p>
+<p>The choice between <code class="docutils literal notranslate"><span class="pre">Step</span></code>, <code class="docutils literal notranslate"><span class="pre">End</span></code>, and <code class="docutils literal notranslate"><span class="pre">None</span></code> expresses how the author
+wants the completed Playable to participate in regression verification. It
+allows a test to reflect the difference between deterministic behavior,
+legitimate variation, and gameplay that is useful to execute without treating
+every observation as a regression assertion.</p>
+</section>
+<section id="case-1-step-the-journey-is-evidence">
+<h2>Case 1: Step – The Journey Is Evidence<a class="headerlink" href="#case-1-step-the-journey-is-evidence" title="Permalink to this heading"></a></h2>
+<p>Consider a deterministic puzzle in which the player unlocks a display case,
+opens it, takes a ruby, and checks inventory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">unlock</span> <span class="n">display</span> <span class="n">case</span> <span class="k">with</span> <span class="n">brass</span> <span class="n">key</span>
+<span class="n">You</span> <span class="n">unlock</span> <span class="n">the</span> <span class="n">display</span> <span class="n">case</span><span class="o">.</span>
+
+<span class="o">&gt;</span> <span class="nb">open</span> <span class="n">display</span> <span class="n">case</span>
+<span class="n">You</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">display</span> <span class="n">case</span><span class="o">.</span>
+
+<span class="o">&gt;</span> <span class="n">take</span> <span class="n">ruby</span>
+<span class="n">Taken</span><span class="o">.</span>
+
+<span class="o">&gt;</span> <span class="n">inventory</span>
+<span class="n">You</span> <span class="n">are</span> <span class="n">carrying</span><span class="p">:</span>
+  <span class="n">a</span> <span class="n">brass</span> <span class="n">key</span>
+  <span class="n">a</span> <span class="n">ruby</span>
+</pre></div>
+</div>
+<p>Suppose this sequence is represented by an independently playable Composition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Composition</span><span class="p">:</span> <span class="n">Acquire</span> <span class="n">the</span> <span class="n">Ruby</span> <span class="p">[</span><span class="n">Step</span><span class="p">]</span>
+    <span class="o">|</span>
+    <span class="o">+--</span> <span class="n">Starter</span><span class="p">:</span> <span class="n">Reach</span> <span class="n">the</span> <span class="n">Gallery</span>
+    <span class="o">+--</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">Unlock</span> <span class="n">the</span> <span class="n">Display</span> <span class="n">Case</span>
+    <span class="o">+--</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">Take</span> <span class="n">the</span> <span class="n">Ruby</span>
+</pre></div>
+</div>
+<p>The verification style belongs to <code class="docutils literal notranslate"><span class="pre">Acquire</span> <span class="pre">the</span> <span class="pre">Ruby</span></code> as a whole. It does not
+belong separately to <code class="docutils literal notranslate"><span class="pre">Unlock</span> <span class="pre">the</span> <span class="pre">Display</span> <span class="pre">Case</span></code> or <code class="docutils literal notranslate"><span class="pre">Take</span> <span class="pre">the</span> <span class="pre">Ruby</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Step</span></code> is appropriate when the behavior along the completed path is expected
+to be stable and those observations are useful regression evidence. The author
+cares not only that the Playable eventually reaches its destination, but that
+the expected interaction continues to occur as the route is traversed.</p>
+<p>Conceptually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">START</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="n">unlock</span> <span class="n">case</span>  <span class="o">---&gt;</span> <span class="n">expected</span> <span class="n">behavior</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="nb">open</span> <span class="n">case</span>    <span class="o">---&gt;</span> <span class="n">expected</span> <span class="n">behavior</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="n">take</span> <span class="n">ruby</span>    <span class="o">---&gt;</span> <span class="n">expected</span> <span class="n">behavior</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="n">inventory</span>    <span class="o">---&gt;</span> <span class="n">expected</span> <span class="n">behavior</span>
+</pre></div>
+</div>
+<p><strong>Use Step when the journey itself is evidence.</strong></p>
+<p>Step is particularly useful for stable puzzle solutions, command sequences,
+object interactions, conversations with predictable responses, and other
+gameplay where intermediate behavior is intentionally repeatable.</p>
+</section>
+<section id="case-2-end-the-destination-is-evidence">
+<h2>Case 2: End – The Destination Is Evidence<a class="headerlink" href="#case-2-end-the-destination-is-evidence" title="Permalink to this heading"></a></h2>
+<p>Now consider a journey through an enchanted forest. The route is valid and
+repeatable, but the story deliberately varies some atmospheric responses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">north</span>
+<span class="n">A</span> <span class="n">crow</span> <span class="n">erupts</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">branches</span><span class="o">.</span>
+
+<span class="o">&gt;</span> <span class="n">north</span>
+<span class="n">Rain</span> <span class="n">rattles</span> <span class="n">suddenly</span> <span class="n">through</span> <span class="n">the</span> <span class="n">leaves</span><span class="o">.</span>
+
+<span class="o">&gt;</span> <span class="n">east</span>
+<span class="n">Something</span> <span class="n">small</span> <span class="n">moves</span> <span class="n">through</span> <span class="n">the</span> <span class="n">ferns</span><span class="o">.</span>
+
+<span class="o">&gt;</span> <span class="n">enter</span> <span class="n">tower</span>
+
+<span class="n">Moon</span> <span class="n">Tower</span>
+<span class="n">A</span> <span class="n">circular</span> <span class="n">stone</span> <span class="n">chamber</span> <span class="n">surrounds</span> <span class="n">you</span><span class="o">.</span> <span class="n">A</span> <span class="n">silver</span> <span class="n">bell</span>
+<span class="n">stands</span> <span class="n">upon</span> <span class="n">a</span> <span class="n">pedestal</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>On another valid run, the same gameplay might include different incidental
+responses, while still ending at Moon Tower. The author does not want
+legitimate variation during the journey to make the test unreliable. What
+matters is that the completed Playable reaches the stable destination.</p>
+<p>The test might therefore be constructed as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Composition</span><span class="p">:</span> <span class="n">Reach</span> <span class="n">Moon</span> <span class="n">Tower</span> <span class="p">[</span><span class="n">End</span><span class="p">]</span>
+    <span class="o">|</span>
+    <span class="o">+--</span> <span class="n">Starter</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">the</span> <span class="n">Forest</span>
+    <span class="o">+--</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">Cross</span> <span class="n">the</span> <span class="n">Forest</span>
+    <span class="o">+--</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">Enter</span> <span class="n">the</span> <span class="n">Tower</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">End</span></code> style applies to <code class="docutils literal notranslate"><span class="pre">Reach</span> <span class="pre">Moon</span> <span class="pre">Tower</span></code> as a complete Composition.
+It is not assigned separately to <code class="docutils literal notranslate"><span class="pre">Cross</span> <span class="pre">the</span> <span class="pre">Forest</span></code> or <code class="docutils literal notranslate"><span class="pre">Enter</span> <span class="pre">the</span> <span class="pre">Tower</span></code>.</p>
+<p>Conceptually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">START</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="n">variable</span> <span class="n">behavior</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="n">variable</span> <span class="n">behavior</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="n">variable</span> <span class="n">behavior</span>
+  <span class="o">|</span>
+  <span class="n">v</span>
+<span class="n">MOON</span> <span class="n">TOWER</span>  <span class="o">---&gt;</span> <span class="n">useful</span> <span class="n">stable</span> <span class="n">endpoint</span>
+</pre></div>
+</div>
+<p><strong>Use End when the destination is evidence.</strong></p>
+<p>End is useful when a Playable crosses intentionally variable material but is
+expected to arrive at a stable and meaningful result.</p>
+</section>
+<section id="case-3-none-do-not-invent-evidence">
+<h2>Case 3: None – Do Not Invent Evidence<a class="headerlink" href="#case-3-none-do-not-invent-evidence" title="Permalink to this heading"></a></h2>
+<p>Some Playables are useful even when the author does not want their observations
+to serve as verification evidence. Imagine a procedural dream sequence whose
+locations, descriptions, characters, or events deliberately vary. The sequence
+may still be useful to preserve and replay, but its output may not provide a
+reliable regression assertion.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Starter</span><span class="p">:</span> <span class="n">Experience</span> <span class="n">the</span> <span class="n">Dream</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Composition</span><span class="p">:</span> <span class="n">Dream</span> <span class="n">Passage</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span>
+    <span class="o">|</span>
+    <span class="o">+--</span> <span class="n">Starter</span><span class="p">:</span> <span class="n">Go</span> <span class="n">to</span> <span class="n">Sleep</span>
+    <span class="o">+--</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">Traverse</span> <span class="n">the</span> <span class="n">Dream</span>
+    <span class="o">+--</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">Wake</span>
+</pre></div>
+</div>
+<p>The Continuation Vectors remain parts of the Composition. <code class="docutils literal notranslate"><span class="pre">None</span></code> belongs to
+the completed <code class="docutils literal notranslate"><span class="pre">Dream</span> <span class="pre">Passage</span></code> Playable.</p>
+<p>Choosing <code class="docutils literal notranslate"><span class="pre">None</span></code> does not mean that the gameplay is unimportant. It means
+that the author is deliberately declining to treat the Playable’s observations
+as the kind of evidence represented by the other verification styles. This is
+preferable to manufacturing a fragile assertion around behavior that the story
+was designed to vary.</p>
+<p><strong>Use None when the Playable is useful, but its observations should not be
+treated as verification evidence.</strong></p>
+</section>
+<section id="three-different-testing-intentions">
+<h2>Three Different Testing Intentions<a class="headerlink" href="#three-different-testing-intentions" title="Permalink to this heading"></a></h2>
+<p>The three styles can be summarized in terms of what the author intends to
+claim about the complete Playable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STEP</span>
+    <span class="n">The</span> <span class="n">journey</span> <span class="ow">is</span> <span class="n">evidence</span><span class="o">.</span>
+    <span class="n">Stable</span> <span class="n">behavior</span> <span class="n">along</span> <span class="n">the</span> <span class="n">Playable</span> <span class="n">matters</span><span class="o">.</span>
+
+<span class="n">END</span>
+    <span class="n">The</span> <span class="n">destination</span> <span class="ow">is</span> <span class="n">evidence</span><span class="o">.</span>
+    <span class="n">Intermediate</span> <span class="n">variation</span> <span class="n">may</span> <span class="n">be</span> <span class="n">legitimate</span><span class="p">,</span> <span class="k">while</span> <span class="n">the</span> <span class="n">completed</span>
+    <span class="n">Playable</span> <span class="ow">is</span> <span class="n">expected</span> <span class="n">to</span> <span class="n">reach</span> <span class="n">a</span> <span class="n">useful</span> <span class="n">stable</span> <span class="n">endpoint</span><span class="o">.</span>
+
+<span class="n">NONE</span>
+    <span class="n">Do</span> <span class="ow">not</span> <span class="n">invent</span> <span class="n">evidence</span><span class="o">.</span>
+    <span class="n">The</span> <span class="n">Playable</span> <span class="ow">is</span> <span class="n">useful</span><span class="p">,</span> <span class="n">but</span> <span class="n">its</span> <span class="n">observations</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">being</span> <span class="n">used</span> <span class="k">as</span>
+    <span class="n">the</span> <span class="n">corresponding</span> <span class="n">regression</span> <span class="n">assertion</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The verification style should therefore be chosen according to the behavior
+the story promises, not simply according to how much recorded output is
+available.</p>
+<img alt="_images/Informant_7.png" src="_images/Informant_7.png" />
+</section>
+<section id="creating-reliable-tests">
+<h2>Creating Reliable Tests<a class="headerlink" href="#creating-reliable-tests" title="Permalink to this heading"></a></h2>
+<p>A reliable Informant test should assert behavior that the author genuinely
+expects the story to preserve. The goal is not to maximize the amount of
+recorded material being compared. The goal is to select useful invariants in a
+stateful and sometimes deliberately variable interactive experience.</p>
+<p>A useful rule is:</p>
+<blockquote>
+<div><p><strong>Test the behavior the story promises, not every behavior the story
+happens to produce.</strong></p>
+</div></blockquote>
+</section>
+<section id="choose-purposeful-playables">
+<h2>Choose Purposeful Playables<a class="headerlink" href="#choose-purposeful-playables" title="Permalink to this heading"></a></h2>
+<p>A good Starter or Composition should represent a behavior the author can
+describe clearly: acquire an object, solve a puzzle, reach a location, complete
+a conversation, activate a machine, trigger a scene, or reach an ending.</p>
+<p>Ask:</p>
+<blockquote>
+<div><p><strong>What do I expect this completed Playable to demonstrate?</strong></p>
+</div></blockquote>
+<p>If the answer concerns stable behavior throughout the traversal, <code class="docutils literal notranslate"><span class="pre">Step</span></code> may
+be appropriate. If the route may vary but its result should remain stable,
+<code class="docutils literal notranslate"><span class="pre">End</span></code> may be the stronger test design. If neither observation is a reliable
+assertion, <code class="docutils literal notranslate"><span class="pre">None</span></code> avoids turning legitimate variation into noise.</p>
+</section>
+<section id="keep-starter-vectors-focused">
+<h2>Keep Starter Vectors Focused<a class="headerlink" href="#keep-starter-vectors-focused" title="Permalink to this heading"></a></h2>
+<p>A Starter Vector establishes reproducible state from the beginning of the
+game. Prefer a Starter that establishes a useful common foundation rather than
+duplicating a long path for every later scenario:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                      <span class="o">+--&gt;</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">test</span> <span class="n">vault</span>
+                      <span class="o">|</span>
+<span class="n">Starter</span><span class="p">:</span> <span class="n">reach</span> <span class="n">lab</span> <span class="o">--+--&gt;</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">test</span> <span class="n">machine</span>
+                      <span class="o">|</span>
+                      <span class="o">+--&gt;</span> <span class="n">Continuation</span><span class="p">:</span> <span class="n">test</span> <span class="n">specimen</span>
+</pre></div>
+</div>
+<p>The Starter can be played to recreate its known state, after which different
+Continuation Vectors can record the behaviors that branch from it.</p>
+</section>
+<section id="use-continuations-to-factor-shared-gameplay">
+<h2>Use Continuations to Factor Shared Gameplay<a class="headerlink" href="#use-continuations-to-factor-shared-gameplay" title="Permalink to this heading"></a></h2>
+<p>Continuation Vectors are useful when several scenarios share the same setup.
+Record the reproducible setup as a Starter, play that Starter to recreate its
+state, and record different continuations from there. Compositions can then
+reconstruct independent tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Composition</span> <span class="n">A</span> <span class="p">[</span><span class="n">Step</span><span class="p">]</span>
+    <span class="n">Starter</span><span class="p">:</span> <span class="n">Reach</span> <span class="n">Laboratory</span>
+    <span class="n">Continuation</span><span class="p">:</span> <span class="n">Test</span> <span class="n">Vault</span>
+
+<span class="n">Composition</span> <span class="n">B</span> <span class="p">[</span><span class="n">End</span><span class="p">]</span>
+    <span class="n">Starter</span><span class="p">:</span> <span class="n">Reach</span> <span class="n">Laboratory</span>
+    <span class="n">Continuation</span><span class="p">:</span> <span class="n">Test</span> <span class="n">Machine</span>
+</pre></div>
+</div>
+<p>The verification style belongs to Composition A and Composition B. It is not
+assigned to the Continuation Vectors from which they are built.</p>
+</section>
+<section id="do-not-over-assert">
+<h2>Do Not Over-Assert<a class="headerlink" href="#do-not-over-assert" title="Permalink to this heading"></a></h2>
+<p>More verification does not automatically make a stronger test. If a Playable
+contains behavior that is intentionally variable, demanding deterministic
+evidence from that variation can create a test that fails while the story is
+working correctly.</p>
+<p>Choose the verification style according to the strongest reliable claim the
+completed Playable can support:</p>
+<ul class="simple">
+<li><p>choose <code class="docutils literal notranslate"><span class="pre">Step</span></code> when stable behavior throughout the path matters;</p></li>
+<li><p>choose <code class="docutils literal notranslate"><span class="pre">End</span></code> when intermediate variation is acceptable but the final
+result provides useful evidence; and</p></li>
+<li><p>choose <code class="docutils literal notranslate"><span class="pre">None</span></code> when the Playable should not make that verification claim.</p></li>
+</ul>
+<p>A test that asserts less, but asserts something genuinely stable, can provide
+better regression evidence than a test that attempts to verify everything.</p>
+</section>
+<section id="treat-repeated-instability-as-information">
+<h2>Treat Repeated Instability as Information<a class="headerlink" href="#treat-repeated-instability-as-information" title="Permalink to this heading"></a></h2>
+<p>If a test produces different results repeatedly without a corresponding source
+change, investigate whether the test is asserting behavior that was never
+intended to remain constant. A Playable whose journey is too variable for
+<code class="docutils literal notranslate"><span class="pre">Step</span></code> may still have a useful stable endpoint for <code class="docutils literal notranslate"><span class="pre">End</span></code>. A Playable
+without a suitable stable assertion may still be worth retaining with
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>The verification style should describe the nature of the interactive
+experience rather than forcing the experience to conform to the test.</p>
+</section>
+<section id="prefer-meaningful-behavioral-boundaries">
+<h2>Prefer Meaningful Behavioral Boundaries<a class="headerlink" href="#prefer-meaningful-behavioral-boundaries" title="Permalink to this heading"></a></h2>
+<p>Useful Playables tend to end at meaningful changes in the fictional world: an
+object has been acquired, a door has been unlocked, a room has been reached, a
+conversation has completed, a scene has begun, a puzzle has been solved, a
+machine has been activated, or an ending has been reached.</p>
+<p>These boundaries make it easier to understand what a test protects and why a
+failure matters.</p>
+</section>
+<section id="keep-independent-tests-independent">
+<h2>Keep Independent Tests Independent<a class="headerlink" href="#keep-independent-tests-independent" title="Permalink to this heading"></a></h2>
+<p>A Starter begins at the beginning of the game, and a Composition begins with a
+Starter. Consequently, an independently runnable test contains the context it
+needs to reproduce its own path:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fresh</span> <span class="n">story</span> <span class="o">-&gt;</span> <span class="n">Starter</span> <span class="n">A</span> <span class="o">--------------------------&gt;</span> <span class="n">PASS</span>
+
+<span class="n">fresh</span> <span class="n">story</span> <span class="o">-&gt;</span> <span class="n">Starter</span> <span class="n">B</span> <span class="o">-&gt;</span> <span class="n">Continuation</span> <span class="n">C</span> <span class="o">-------&gt;</span> <span class="n">PASS</span>
+
+<span class="n">fresh</span> <span class="n">story</span> <span class="o">-&gt;</span> <span class="n">Starter</span> <span class="n">D</span> <span class="o">-&gt;</span> <span class="n">Continuation</span> <span class="n">E</span>
+                         <span class="o">-&gt;</span> <span class="n">Continuation</span> <span class="n">F</span> <span class="o">--------&gt;</span> <span class="n">PASS</span>
+</pre></div>
+</div>
+<p>One test should not depend upon another test having run first. Required setup
+belongs inside the Starter and Continuation structure of the Playable itself.
+This keeps failures reproducible and prevents execution order from silently
+becoming part of the test.</p>
+</section>
+<section id="a-practical-rule">
+<h2>A Practical Rule<a class="headerlink" href="#a-practical-rule" title="Permalink to this heading"></a></h2>
+<p>When choosing a verification style for a Starter or Composition, ask what the
+completed Playable is intended to prove:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Does the behavior along the path need to remain stable?
+    Choose Step.
+
+May the journey vary while the destination must remain stable?
+    Choose End.
+
+Would verification turn legitimate variation into a false failure?
+    Choose None.
+</pre></div>
+</div>
+<p>The distinction is not between important and unimportant gameplay. It is
+between different kinds of evidence.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Step</span></code> says that the journey is evidence. <code class="docutils literal notranslate"><span class="pre">End</span></code> says that the destination
+is evidence. <code class="docutils literal notranslate"><span class="pre">None</span></code> says that the Playable remains useful, but Informant
+should not invent evidence where the interactive experience does not provide
+a reliable assertion.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="toolchains">
+<h1>Toolchains<a class="headerlink" href="#toolchains" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<p>Informant uses self-contained toolchains rather than depending on an Inform
+installation elsewhere on the computer. The VS Code extension and compiler
+environment are distributed separately, allowing Informant to install and
+manage the Inform environment used by a project without changing another
+Inform installation on the system.</p>
+<p>An Informant Toolchain contains the native compiler programs together with the
+Inform resources, documentation, extensions, templates, and player components
+needed for the normal development workflow. Toolchains are available for each
+supported operating system and share the same general package organization.</p>
+<p>At a high level, a toolchain contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PACKAGE</span><span class="o">/</span>
+<span class="o">|</span>
+<span class="o">+--</span> <span class="n">Compilers</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Documentation</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Extensions</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">HTML</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Imagery</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Inter</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Languages</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Miscellany</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Pipelines</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Player</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">REDIST</span><span class="o">/</span>
+<span class="o">+--</span> <span class="n">Templates</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>The exact contents can vary between releases, but each directory has a clear
+role in providing the complete Inform development environment used by
+Informant.</p>
+<section id="toolchain-components">
+<h2>Toolchain Components<a class="headerlink" href="#toolchain-components" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Compilers/</span></code></dt><dd><p>Contains the native <code class="docutils literal notranslate"><span class="pre">inform7</span></code>, <code class="docutils literal notranslate"><span class="pre">inform6</span></code>, and <code class="docutils literal notranslate"><span class="pre">inblorb</span></code> programs for
+the target operating system. These programs provide the principal compile
+and release pipeline used by Informant.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Inter/</span></code> and <code class="docutils literal notranslate"><span class="pre">Pipelines/</span></code></dt><dd><p>Contain Inform’s kits and processing definitions used by the compiler.
+These resources form part of the version-matched Inform environment.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Extensions/</span></code> and <code class="docutils literal notranslate"><span class="pre">Languages/</span></code></dt><dd><p>Provide the standard Inform extensions and language resources included
+with the selected Inform release. Extensions installed separately by the
+user remain distinct from those supplied by the toolchain.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Documentation/</span></code> and <code class="docutils literal notranslate"><span class="pre">Imagery/</span></code></dt><dd><p>Provide Inform documentation and supporting images used by the
+documentation and generated Index.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Templates/</span></code>, <code class="docutils literal notranslate"><span class="pre">HTML/</span></code>, and <code class="docutils literal notranslate"><span class="pre">Miscellany/</span></code></dt><dd><p>Provide release templates, web presentation resources, Index resources,
+and other supporting material used by Inform during compilation and
+release.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Player/</span></code></dt><dd><p>Contains the Quixe/GlkOte browser-player resources used by Informant for
+integrated Glulx playback.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">REDIST/</span></code></dt><dd><p>Contains redistribution and licensing material for components included in
+the packaged toolchain.</p>
+</dd>
+</dl>
+</section>
+<section id="compilation">
+<h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this heading"></a></h2>
+<p>For Inform 10, the principal compiler pipeline can be summarized as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Inform</span> <span class="mi">7</span> <span class="n">source</span>
+      <span class="o">|</span>
+      <span class="n">v</span>
+   <span class="n">inform7</span>
+      <span class="o">|</span>
+      <span class="n">v</span>
+<span class="n">generated</span> <span class="n">Inform</span> <span class="mi">6</span> <span class="n">source</span>
+      <span class="o">|</span>
+      <span class="n">v</span>
+   <span class="n">inform6</span>
+      <span class="o">|</span>
+      <span class="n">v</span>
+  <span class="n">story</span> <span class="n">file</span>
+      <span class="o">|</span>
+      <span class="o">+------&gt;</span> <span class="n">inblorb</span> <span class="k">for</span> <span class="n">packaged</span> <span class="n">release</span> <span class="n">output</span>
+</pre></div>
+</div>
+<p>The compiler programs work with the surrounding kits, extensions, languages,
+pipelines, and release resources. Informant therefore manages the toolchain as
+a complete package rather than as a collection of independent executables.</p>
+</section>
+<section id="platform-packages">
+<h2>Platform Packages<a class="headerlink" href="#platform-packages" title="Permalink to this heading"></a></h2>
+<p>Informant provides toolchain packages for Windows, macOS, and Linux. The
+overall package organization is consistent across platforms, while the native
+programs in <code class="docutils literal notranslate"><span class="pre">Compilers/</span></code> are built for the operating system and architecture
+of each package.</p>
+<p>The macOS toolchain is distributed as a universal package supporting Intel and
+Apple silicon. Windows and Linux use their corresponding native x86-64
+packages.</p>
+<p>Installing a toolchain does not replace or modify another Inform installation.
+Informant stores its managed toolchains separately and uses the toolchain
+selected for the current project.</p>
+</section>
+<section id="versioned-environments">
+<h2>Versioned Environments<a class="headerlink" href="#versioned-environments" title="Permalink to this heading"></a></h2>
+<p>A toolchain represents a matched Inform environment. Its compiler programs and
+supporting resources belong to the same toolchain release, giving Informant a
+predictable set of files to use when compiling, playing, documenting, and
+releasing a project.</p>
+<p>Conceptually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span>
+   <span class="o">|</span>
+   <span class="n">v</span>
+<span class="n">selected</span> <span class="n">toolchain</span>
+   <span class="o">|</span>
+   <span class="n">v</span>
+<span class="n">PACKAGE</span><span class="o">/</span>
+   <span class="o">|</span>
+   <span class="o">+--</span> <span class="n">compiler</span> <span class="n">programs</span>
+   <span class="o">+--</span> <span class="n">Inform</span> <span class="n">kits</span> <span class="ow">and</span> <span class="n">pipelines</span>
+   <span class="o">+--</span> <span class="n">standard</span> <span class="n">extensions</span> <span class="ow">and</span> <span class="n">languages</span>
+   <span class="o">+--</span> <span class="n">documentation</span> <span class="ow">and</span> <span class="n">imagery</span>
+   <span class="o">+--</span> <span class="n">release</span> <span class="n">resources</span>
+   <span class="o">+--</span> <span class="n">integrated</span> <span class="n">player</span>
+</pre></div>
+</div>
+<p>This separation also allows more than one toolchain to be installed. A project
+can select an appropriate installed toolchain without requiring a system-wide
+change to Inform.</p>
+</section>
+<section id="toolchain-sources-and-releases">
+<h2>Toolchain Sources and Releases<a class="headerlink" href="#toolchain-sources-and-releases" title="Permalink to this heading"></a></h2>
+<p>Informant toolchains are assembled from the Inform ecosystem and packaged for
+use by Informant. Build automation, source information, and downloadable
+releases are maintained in the Informant toolchain repository:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/interactivefiction/informant-toolchains/actions">Informant Toolchain Actions</a></p></li>
+<li><p><a class="reference external" href="https://github.com/interactivefiction/informant-toolchains/releases">Informant Toolchain Releases</a></p></li>
+</ul>
+<p>The toolchain is distributed separately from the Informant VS Code extension.
+Licensing information for Informant and the components used by the toolchain
+is provided in the Licensing section of this documentation.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="install-toolchain">
+<h2>Install Toolchain<a class="headerlink" href="#install-toolchain" title="Permalink to this heading"></a></h2>
+<p>To obtain and install a toolchain supported by Informant use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Install</span> <span class="n">Toolchain</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="manage-toolchains">
+<h2>Manage Toolchains<a class="headerlink" href="#manage-toolchains" title="Permalink to this heading"></a></h2>
+<p>To inspect and manage the toolchains currently available to Informant use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Manage</span> <span class="n">Toolchains</span>
+</pre></div>
+</div>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="informant-storage">
+<h2>Informant Storage<a class="headerlink" href="#informant-storage" title="Permalink to this heading"></a></h2>
+<p>To open the location where Informant maintains its managed application data,
+including installed toolchain material use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Informant</span><span class="p">:</span> <span class="n">Reveal</span> <span class="n">Informant</span> <span class="n">Storage</span>
+</pre></div>
+</div>
+<p>The storage area is managed by Informant and is separate from an Inform
+installation that may already exist elsewhere on the computer.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="resources">
+<h1>Resources<a class="headerlink" href="#resources" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<p>The following resources provide online help for Visual Studio Code, Visual
+Studio Code extensions, Inform, and interactive fiction development.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<section id="visual-studio-code">
+<h2>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs">Visual Studio Code Documentation</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/getstarted/overview">Getting Started with Visual Studio Code</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/editing/workspaces/workspace-trust">Visual Studio Code Workspace Trust</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/configure/extensions/extension-marketplace">Visual Studio Code Extension Marketplace Documentation</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/configure/extensions/extensions">Using Visual Studio Code Extensions</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/api/">Visual Studio Code Extension API</a></p></li>
+</ul>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="id3">
+<h2>Inform<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://inform7.com/">Inform 7</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ganelson/inform">Inform GitHub Organization</a></p></li>
+<li><p><a class="reference external" href="https://iftechfoundation.org/">Interactive Fiction Technology Foundation</a></p></li>
+<li><p><a class="reference external" href="https://intfiction.org/">Interactive Fiction Community Forum</a></p></li>
+<li><p><a class="reference external" href="https://www.ifwiki.org/">IFWiki</a></p></li>
+</ul>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+<section id="informant">
+<h2>Informant<a class="headerlink" href="#informant" title="Permalink to this heading"></a></h2>
+<p>Informant-specific project, issue, release, and online-help links should be
+listed here once their public release locations are finalized.</p>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+</section>
+</section>
+<section id="licensing">
+<h1>Licensing<a class="headerlink" href="#licensing" title="Permalink to this heading"></a></h1>
+<img alt="_images/Informant_17.png" src="_images/Informant_17.png" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>Informant and the Inform toolchain are <strong>separate</strong> software components.
+Informant-managed toolchains contain software originating from the Inform
+project and remain subject to the licenses supplied with those components.</p>
+</section>
+<section id="informant-vscode-plugin">
+<h2>Informant VSCode Plugin<a class="headerlink" href="#informant-vscode-plugin" title="Permalink to this heading"></a></h2>
+<p>The Informant VS Code extension is free software released by OpcodeASM under the
+<strong>GNU General Public License, version 3 only (GPL-3.0-only)</strong>. You are free
+to use, study, modify, and redistribute Informant under the terms of
+that license. The complete license terms are provided in the <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>
+file distributed with Informant.</p>
+</section>
+<section id="informant-inform-toolchain-software-bill-of-materials">
+<h2>Informant Inform Toolchain Software Bill of Materials<a class="headerlink" href="#informant-inform-toolchain-software-bill-of-materials" title="Permalink to this heading"></a></h2>
+<p>The optional Informant Inform 7 Toolchain is a curated distribution of supporting
+components, each of which remains subject to its respective copyright and license
+terms.</p>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Software Bill of Materials</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 46.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>License</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inform 10.1.2</p></td>
+<td><p>Inform compiler and supporting toolchain resources</p></td>
+<td><p>Artistic License 2.0, except where otherwise stated</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inweb 7.2.0</p></td>
+<td><p>Inform build and development tooling</p></td>
+<td><p>Artistic License 2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Intest 2.1.0</p></td>
+<td><p>Inform testing and build tooling</p></td>
+<td><p>Artistic License 2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inform Website</p></td>
+<td><p>Inform documentation and supporting resources</p></td>
+<td><p>Artistic License 2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Quixe / GlkOte</p></td>
+<td><p>Browser-based Glulx interpreter and player components</p></td>
+<td><p>MIT License</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, OpcodeASM.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

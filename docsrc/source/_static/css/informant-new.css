@@ -1,0 +1,263 @@
+/*
+ * Informant - Inform development environment for Visual Studio Code
+ * Copyright (C) 2026 OpcodeASM
+ *
+ * This file is part of Informant.
+ *
+ * Informant is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ *
+ * Informant is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Informant. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+/*
+ * Informant documentation theme
+ * Dark-mode overrides for sphinx_rtd_theme
+ */
+
+/* ---------------------------------------------------------
+   Main document
+   --------------------------------------------------------- */
+
+html,
+body,
+.wy-nav-content-wrap {
+    background: #181818 !important;
+}
+
+.wy-nav-content {
+    background: #202020 !important;
+    color: #d8d8d8 !important;
+}
+
+.rst-content,
+.rst-content p,
+.rst-content li,
+.rst-content dd,
+.rst-content dt {
+    color: #d8d8d8;
+}
+
+.rst-content h1,
+.rst-content h2,
+.rst-content h3,
+.rst-content h4,
+.rst-content h5,
+.rst-content h6 {
+    color: #eeeeee;
+}
+
+
+/* ---------------------------------------------------------
+   Links
+   --------------------------------------------------------- */
+
+.rst-content a {
+    color: #68aee8;
+}
+
+.rst-content a:visited {
+    color: #8ab9df;
+}
+
+
+/* ---------------------------------------------------------
+   Left navigation
+   --------------------------------------------------------- */
+
+.wy-nav-side {
+    background: #101010 !important;
+}
+
+.wy-side-nav-search {
+    background: #202c3b !important;
+}
+
+.wy-menu-vertical a {
+    color: #cccccc !important;
+}
+
+.wy-menu-vertical a:hover {
+    background: #292929 !important;
+    color: #ffffff !important;
+}
+
+
+/* Expanded navigation sections */
+
+.wy-menu-vertical li.current {
+    background: #292929 !important;
+}
+
+.wy-menu-vertical li.current > a {
+    background: #303030 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.wy-menu-vertical li.current a {
+    color: #cccccc !important;
+}
+
+.wy-menu-vertical li.current a:hover {
+    background: #383838 !important;
+    color: #ffffff !important;
+}
+
+.wy-menu-vertical li.toctree-l1.current > a {
+    border: none !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a {
+    background: #383838 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Search box
+   --------------------------------------------------------- */
+
+.wy-side-nav-search input[type="text"] {
+    background: #303030 !important;
+    color: #eeeeee !important;
+
+    border: 1px solid #555555 !important;
+    border-radius: 4px !important;
+
+    box-shadow: none !important;
+}
+
+.wy-side-nav-search input[type="text"]::placeholder {
+    color: #aaaaaa !important;
+}
+
+.wy-side-nav-search input[type="text"]:focus {
+    background: #383838 !important;
+    color: #ffffff !important;
+    border-color: #6c9ed4 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Tables
+   --------------------------------------------------------- */
+
+.rst-content table.docutils,
+.rst-content table.docutils td,
+.rst-content table.docutils th {
+    border-color: #555555 !important;
+}
+
+.rst-content table.docutils th {
+    background: #292929 !important;
+    color: #eeeeee !important;
+}
+
+.rst-content table.docutils td {
+    background: #242424 !important;
+    color: #dddddd !important;
+}
+
+/* Alternating rows -- keep contrast subtle */
+
+.rst-content table.docutils tr:nth-child(even) td {
+    background: #2c2c2c !important;
+    color: #dddddd !important;
+}
+
+.rst-content table.docutils tr:nth-child(odd) td {
+    background: #242424 !important;
+    color: #dddddd !important;
+}
+
+
+/* ---------------------------------------------------------
+   Inline code
+   --------------------------------------------------------- */
+
+code,
+.rst-content code,
+.rst-content tt {
+    background: #2b2b2b !important;
+    color: #eeeeee !important;
+    border: 1px solid #444444 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Code blocks
+   --------------------------------------------------------- */
+
+.highlight,
+.rst-content div[class^="highlight"] {
+    background: #151515 !important;
+}
+
+.highlight pre {
+    background: #151515 !important;
+    color: #dddddd !important;
+}
+
+
+
+/* ---------------------------------------------------------
+   Code block syntax highlighting
+   --------------------------------------------------------- */
+
+/* Pygments blue tokens are too dark against Informant's
+   code-block background. Use the theme's brighter blue. */
+
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt,
+.highlight .nb,
+.highlight .bp,
+.highlight .nc,
+.highlight .no,
+.highlight .nd,
+.highlight .ni,
+.highlight .ne,
+.highlight .nf,
+.highlight .nl,
+.highlight .nn,
+.highlight .nt,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi,
+.highlight .vm {
+    color: #68aee8 !important;
+}
+
+
+
+/* Inform/Pygments generic headings (for example, Part and Chapter headings) */
+.highlight .gh {
+    color: #68aee8 !important;
+    font-weight: bold;
+}
+
+/* ---------------------------------------------------------
+   Horizontal rules / borders
+   --------------------------------------------------------- */
+
+hr {
+    border-color: #444444 !important;
+}
+
+.rst-content table.docutils caption {
+    color: #cccccc !important;
+}
