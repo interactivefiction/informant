@@ -1,0 +1,473 @@
+{
+  "name": "informant",
+  "displayName": "Informant",
+  "description": "A self-contained Inform development environment for Visual Studio Code.",
+  "version": "1.0.0",
+  "publisher": "OpcodeASM",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interactivefiction/informant.git"
+  },
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "Inform 7",
+    "Inform7",
+    "interactive fiction",
+    "Glulx",
+    "Z-machine"
+  ],
+  "activationEvents": [
+    "onLanguage:inform7",
+    "onCommand:informant.compile",
+    "onCommand:informant.compileTestStory",
+    "onCommand:informant.compileAndPlay",
+    "onCommand:informant.play",
+    "onCommand:informant.playForTest",
+    "onCommand:informant.installToolchain",
+    "onCommand:informant.manageToolchains",
+    "onCommand:informant.createProject",
+    "onCommand:informant.openProject",
+    "onCommand:informant.recordSkein",
+    "onCommand:informant.playSkein",
+    "onCommand:informant.openTestManager"
+  ],
+  "main": "./extension.js",
+  "icon": "resources/icons/informant.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "inform7",
+        "aliases": [
+          "Inform 7",
+          "Inform7"
+        ],
+        "extensions": [
+          ".ni",
+          ".i7x"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "inform7",
+        "scopeName": "source.inform7",
+        "path": "./syntaxes/inform7.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "inform7",
+        "path": "./snippets/inform7.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "informant.playSkein",
+        "title": "Informant: Play Skein",
+        "icon": "icons/PlaySkein.png"
+      },
+      {
+        "command": "informant.recordSkein",
+        "title": "Informant: Record Skein",
+        "icon": "icons/RecordSkein.png"
+      },
+      {
+        "command": "informant.playForTest",
+        "title": "Informant: Play For Test",
+        "icon": "icons/PlayForTest.png"
+      },
+      {
+        "command": "informant.compileTestStory",
+        "title": "Informant: Compile Test Story",
+        "icon": "icons/CompileTestStory.png"
+      },
+      {
+        "command": "informant.compile",
+        "title": "Informant: Compile Story",
+        "icon": "icons/CompileStory.png"
+      },
+      {
+        "command": "informant.compileAndPlay",
+        "title": "Informant: Compile and Play",
+        "icon": "icons/CompileAndPlay.png"
+      },
+      {
+        "command": "informant.play",
+        "title": "Informant: Play Story",
+        "icon": "icons/PlayStory.png"
+      },
+      {
+        "command": "informant.showErrors",
+        "title": "Informant: Show Build Errors",
+        "icon": "icons/ShowBuildErrors.png"
+      },
+      {
+        "command": "informant.openDocs",
+        "title": "Informant: Open Documentation",
+        "icon": "icons/OpenDocumentation.png"
+      },
+      {
+        "command": "informant.openIndex",
+        "title": "Informant: Open Index",
+        "icon": "icons/OpenIndex.png"
+      },
+      {
+        "command": "informant.createProject",
+        "title": "Informant: Create New Project",
+        "icon": "icons/CreateNewProjectTransp.png"
+      },
+      {
+        "command": "informant.openProject",
+        "title": "Informant: Open or Convert Project",
+        "icon": "icons/OpenProjectTransp.png"
+      },
+      {
+        "command": "informant.installExtension",
+        "title": "Informant: Manage extensions",
+        "icon": "icons/Installi7xExtension.png"
+      },
+      {
+        "command": "informant.clean",
+        "title": "Informant: Clean Project",
+        "icon": "icons/CleanProject.png"
+      },
+      {
+        "command": "informant.installToolchain",
+        "title": "Informant: Install Toolchain",
+        "icon": "icons/InstallToolChain.png"
+      },
+      {
+        "command": "informant.manageToolchains",
+        "title": "Informant: Manage Toolchains",
+        "icon": "icons/ManageToolchain.png"
+      },
+      {
+        "command": "informant.selectToolchain",
+        "title": "Informant: Select Project Toolchain",
+        "icon": "icons/SelectProjectToolchain.png"
+      },
+      {
+        "command": "informant.showStorage",
+        "title": "Informant: Reveal Informant Storage",
+        "icon": "icons/RevealInformantStorage.png"
+      },
+      {
+        "command": "informant.openTestManager",
+        "title": "Informant: Open Test Manager",
+        "icon": "icons/OpenTestManager.png"
+      },
+      {
+        "command": "informant.configureSourceActions",
+        "title": "Informant: Source Action Settings",
+        "icon": "icons/Settings.png"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "informant.compile",
+          "when": "editorLangId == inform7 && informant.sourceActions.compile",
+          "group": "navigation@10"
+        },
+        {
+          "command": "informant.play",
+          "when": "editorLangId == inform7 && informant.sourceActions.play",
+          "group": "navigation@11"
+        },
+        {
+          "command": "informant.playSkein",
+          "when": "editorLangId == inform7 && informant.sourceActions.playSkein",
+          "group": "navigation@12"
+        },
+        {
+          "command": "informant.recordSkein",
+          "when": "editorLangId == inform7 && informant.sourceActions.recordSkein",
+          "group": "navigation@13"
+        },
+        {
+          "command": "informant.playForTest",
+          "when": "editorLangId == inform7 && informant.sourceActions.playForTest",
+          "group": "navigation@14"
+        },
+        {
+          "command": "informant.compileTestStory",
+          "when": "editorLangId == inform7 && informant.sourceActions.compileTestStory",
+          "group": "navigation@15"
+        },
+        {
+          "command": "informant.compileAndPlay",
+          "when": "editorLangId == inform7 && informant.sourceActions.compileAndPlay",
+          "group": "navigation@16"
+        },
+        {
+          "command": "informant.openDocs",
+          "when": "editorLangId == inform7 && informant.sourceActions.openDocs",
+          "group": "navigation@19"
+        },
+        {
+          "command": "informant.openIndex",
+          "when": "editorLangId == inform7 && informant.sourceActions.openIndex",
+          "group": "navigation@20"
+        },
+        {
+          "command": "informant.createProject",
+          "when": "editorLangId == inform7 && informant.sourceActions.createProject",
+          "group": "navigation@21"
+        },
+        {
+          "command": "informant.openProject",
+          "when": "editorLangId == inform7 && informant.sourceActions.openProject",
+          "group": "navigation@22"
+        },
+        {
+          "command": "informant.installExtension",
+          "when": "editorLangId == inform7 && informant.sourceActions.installExtension",
+          "group": "navigation@23"
+        },
+        {
+          "command": "informant.clean",
+          "when": "editorLangId == inform7 && informant.sourceActions.clean",
+          "group": "navigation@24"
+        },
+        {
+          "command": "informant.installToolchain",
+          "when": "editorLangId == inform7 && informant.sourceActions.installToolchain",
+          "group": "navigation@25"
+        },
+        {
+          "command": "informant.manageToolchains",
+          "when": "editorLangId == inform7 && informant.sourceActions.manageToolchains",
+          "group": "navigation@26"
+        },
+        {
+          "command": "informant.selectToolchain",
+          "when": "editorLangId == inform7 && informant.sourceActions.selectToolchain",
+          "group": "navigation@27"
+        },
+        {
+          "command": "informant.showStorage",
+          "when": "editorLangId == inform7 && informant.sourceActions.showStorage",
+          "group": "navigation@28"
+        },
+        {
+          "command": "informant.openTestManager",
+          "when": "editorLangId == inform7 && informant.sourceActions.openTestManager",
+          "group": "navigation@29"
+        },
+        {
+          "command": "informant.configureSourceActions",
+          "when": "editorLangId == inform7",
+          "group": "navigation@99"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "informant.openIndex",
+          "when": "editorLangId == inform7",
+          "group": "informant@5"
+        },
+        {
+          "command": "informant.compile",
+          "when": "editorLangId == inform7",
+          "group": "informant@1"
+        },
+        {
+          "command": "informant.compileAndPlay",
+          "when": "editorLangId == inform7",
+          "group": "informant@2"
+        },
+        {
+          "command": "informant.showErrors",
+          "when": "editorLangId == inform7",
+          "group": "informant@3"
+        },
+        {
+          "command": "informant.selectToolchain",
+          "when": "editorLangId == inform7",
+          "group": "informant@4"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "informant.showErrors",
+          "when": "false"
+        },
+        {
+          "command": "informant.playSkein"
+        },
+        {
+          "command": "informant.recordSkein"
+        },
+        {
+          "command": "informant.playForTest"
+        },
+        {
+          "command": "informant.compileTestStory"
+        },
+        {
+          "command": "informant.compile"
+        },
+        {
+          "command": "informant.compileAndPlay"
+        },
+        {
+          "command": "informant.play"
+        },
+        {
+          "command": "informant.installToolchain"
+        },
+        {
+          "command": "informant.manageToolchains"
+        },
+        {
+          "command": "informant.createProject"
+        },
+        {
+          "command": "informant.openProject"
+        },
+        {
+          "command": "informant.openDocs"
+        },
+        {
+          "command": "informant.selectToolchain"
+        },
+        {
+          "command": "informant.openTestManager"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "informant.compile",
+        "key": "ctrl+alt+b",
+        "mac": "cmd+alt+b",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.compileAndPlay",
+        "key": "ctrl+alt+r",
+        "mac": "cmd+alt+r",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.play",
+        "key": "ctrl+alt+p",
+        "mac": "cmd+alt+p",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.showErrors",
+        "key": "ctrl+alt+e",
+        "mac": "cmd+alt+e",
+        "when": "editorLangId == inform7"
+      },
+      {
+        "command": "informant.openDocs",
+        "key": "ctrl+alt+h",
+        "mac": "cmd+alt+h",
+        "when": "editorLangId == inform7"
+      }
+    ],
+    "configuration": {
+      "title": "Informant",
+      "properties": {
+        "informant.toolchain.preferredVersion": {
+          "type": "string",
+          "default": "latest",
+          "description": "Preferred private Inform toolchain version. Use 'latest' or a version folder installed in Informant storage."
+        },
+        "informant.toolchain.manifestUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Optional URL for a JSON manifest listing downloadable Informant toolchains. Leave empty to use the bundled official Informant toolchain manifest."
+        },
+        "informant.toolchain.allowSystemFallback": {
+          "type": "boolean",
+          "default": false,
+          "description": "Allow Informant to use Inform tools found on PATH if no private toolchain is installed. Off by default to avoid interference with existing Inform installations."
+        },
+        "informant.build.commandTemplate": {
+          "type": "string",
+          "default": "{inform7} -project {project}",
+          "description": "Command template used for private toolchain builds. Tokens: {project}, {toolchain}, {inform7}, {inform6}, {inbuild}, {inter}, {inblorb}."
+        },
+        "informant.build.cleanBeforeCompile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Remove Build artifacts before compiling."
+        },
+        "informant.player.command": {
+          "type": "string",
+          "default": "",
+          "description": "Interpreter command. If empty, Informant auto-detects private interpreters, then optionally system glulxe/git/frotz if fallback is enabled, then opens the story file externally."
+        },
+        "informant.player.args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Arguments placed before the compiled story path when launching the interpreter."
+        },
+        "informant.extensions.folder": {
+          "type": "string",
+          "default": "",
+          "description": "Optional installation folder for .i7x extensions. If empty, installs into the selected toolchain package's Extensions folder. Custom folders must be discoverable by your Inform build."
+        },
+        "informant.errors.extraPatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Additional JavaScript regex patterns for build errors. Expected captures: file, line, optional column, message."
+        },
+        "informant.sourceActions": {
+          "type": "array",
+          "scope": "application",
+          "items": {
+            "type": "string",
+            "enum": [
+              "informant.compile",
+              "informant.play",
+              "informant.playSkein",
+              "informant.recordSkein",
+              "informant.playForTest",
+              "informant.compileTestStory",
+              "informant.compileAndPlay",
+              "informant.openDocs",
+              "informant.openIndex",
+              "informant.createProject",
+              "informant.openProject",
+              "informant.installExtension",
+              "informant.clean",
+              "informant.installToolchain",
+              "informant.manageToolchains",
+              "informant.selectToolchain",
+              "informant.showStorage",
+              "informant.openTestManager"
+            ]
+          },
+          "uniqueItems": true,
+          "default": [
+            "informant.compile",
+            "informant.play"
+          ],
+          "description": "Action buttons shown in the Inform source editor toolbar. Use Source Action Settings to choose buttons. The Settings button is always shown."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "node --check extension.js && node --check extension-catalog.js && node --check extension-manager.js && node --check index-viewer.js && node --check quixe-player.js && node --check skein.js && node --check skein-recorder.js && node --check skein-recording-adapter.js && node --check skein-playback-adapter.js && node --check test-manager.js && node --check test-vector-library.js && node --check room-qualification.js && node --check showme-observation.js && node --check iskein.js && node --check make-test-vector.js && node --check working-iskein.js && node --check continuation-adapter.js && node --check artifact-xml.js && node --check icollection.js && node --check collection-library.js && node --check icomposition.js && node --check composition-library.js && node --check composition-playback.js && node --check playable-continuation.js && node --check test-runner.js && node --check test-results.js",
+    "test": "node --test test/*.test.js"
+  }
+}

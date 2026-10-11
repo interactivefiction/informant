@@ -1,0 +1,53 @@
+# Informant - Inform development environment for Visual Studio Code
+# Copyright (C) 2026 OpcodeASM
+#
+# This file is part of Informant.
+#
+# Informant is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3 of the License.
+#
+# Informant is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Informant. If not, see <https://www.gnu.org/licenses/>.
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
+name: Build Informant Extension
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install VSCE
+        run: npm install -g @vscode/vsce
+
+      - name: Package extension
+        run: vsce package
+
+      - name: Show package
+        run: ls -lh *.vsix
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: informant-vsix
+          path: "*.vsix"

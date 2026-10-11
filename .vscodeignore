@@ -1,0 +1,10 @@
+.git/**
+.github/**
+.gitignore
+*.vsix
+docsrc/**
+docs/**
+AGENTS.md
+CHANGELOG.md
+test/**
+

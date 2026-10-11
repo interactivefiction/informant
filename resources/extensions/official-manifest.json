@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "inform-10.1.2c-extensions-i7x",
+  "informVersion": "10.1.2",
+  "url": "https://github.com/interactivefiction/inform7extensions/releases/download/inform-10.1.2c-extensions-i7x/extension-catalog.zip",
+  "sha256": "878b01eaf2631f05cf3699786aabc541e6e3eb040ebeaa7f725de112dda264a3",
+  "catalogFile": "extensions.xml"
+}
