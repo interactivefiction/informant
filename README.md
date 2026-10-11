@@ -15,12 +15,16 @@ Informant supports the complete authoring cycle, from creating and opening
 projects through compilation, integrated playback, generated Inform
 documentation and Indexes, Skein recording, and behavioral testing.
 
+## Documentation & Issues
+
+- The complete Informant documentation is available in the
+[Informant User Manual](https://interactivefiction.github.io/informant/).
+- Report issues to [Informant Github Issues](https://github.com/interactivefiction/informant/issues).
+
 ## Features and Capabilities
 
 Informant 1.0.0 provides an end-to-end Inform authoring, compilation, playback,
-and testing environment.
-
-Current capabilities include:
+and testing environment. Current capabilities include:
 
 - Inform 7 language support for `.ni` and `.i7x` files.
 - Syntax highlighting and snippets.
