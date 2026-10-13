@@ -873,6 +873,10 @@ use by the Inform development environment you can use the following command::
 
    Informant: Install .i7x Extension
 
+A descriptive catalog of various Inform extensions is available: 
+
+* `Informant i7x Extension Guide <https://interactivefiction.github.io/inform7extensions/>`_
+
 NOTE: This command is for Inform language extensions and should not be confused
 with Visual Studio Code extensions.  Informant itself is a Visual Studio Code
 extension; an ``.i7x`` file extends Inform.
