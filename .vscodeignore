@@ -4,7 +4,5 @@
 *.vsix
 docsrc/**
 docs/**
-AGENTS.md
-CHANGELOG.md
 test/**
 
